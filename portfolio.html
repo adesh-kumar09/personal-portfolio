@@ -30,6 +30,14 @@
                     <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
+                <!-- Dark Mode Toggle Button -->
+                <ul class="navbar-nav">
+                    <li class="nav-item d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
+                        <button id="darkModeToggle" class="btn btn-outline-light rounded-circle p-0" aria-label="Toggle dark mode" title="Toggle dark mode" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;">
+                            <i id="darkModeIcon" class="fas fa-sun" style="font-size: 1.1rem;"></i>
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -49,16 +57,22 @@
         <!-- Portfolio Grid Section -->
         <section class="page-section bg-light" id="portfolio-grid">
             <div class="container">
+                <!-- Added Section Heading -->
+                <div class="text-center" data-aos="fade-up">
+                    <h2 class="section-heading text-uppercase">My Projects</h2>
+                    <h3 class="section-subheading text-muted mb-5">Explore a selection of my work.</h3>
+                </div>
+
                 <!-- Filter Buttons (Removed as per user request - all projects shown) -->
                 <!-- Removed filter buttons to show all projects without filtering -->
                 <!--
                 <div class="row justify-content-center mb-5">
-                    <div class="col-lg-10 text-center" data-aos="fade-up"> 
+                    <div class="col-lg-10 text-center" data-aos="fade-up">
                         <button class="btn btn-outline-primary filter-button active mx-1 mb-2" data-filter="all">All Projects</button>
                         <button class="btn btn-outline-primary filter-button mx-1 mb-2" data-filter="design">Web Design</button>
                         <button class="btn btn-outline-primary filter-button mx-1 mb-2" data-filter="dev">Development</button>
                         <button class="btn btn-outline-primary filter-button mx-1 mb-2" data-filter="bootstrap">Bootstrap</button>
-                        <button class="btn btn-outline-primary filter-button mx-1 mb-2" data-filter="javascript">JavaScript/jQuery</button> 
+                        <button class="btn btn-outline-primary filter-button mx-1 mb-2" data-filter="javascript">JavaScript/jQuery</button>
                     </div>
                 </div>
                 -->
@@ -66,10 +80,10 @@
                 <!-- Portfolio Items (Keep revised link structure) -->
                 <div class="row g-4 portfolio-container">
                     <!-- Item 1 (Example: Design, Dev, Bootstrap, JS) -->
-                    <div class="col-lg-4 col-md-6 portfolio-item" data-aos="fade-up" data-aos-delay="100" id="project1">
+                    <div class="col-lg-4 col-md-6 col-sm-6 portfolio-item" data-aos="fade-up" data-aos-delay="100" id="project1"> <!-- Added col-sm-6 -->
                         <div class="portfolio-wrap card border-0 shadow-sm h-100">
                             <a href="[Live Project URL 1]" target="_blank" class="portfolio-img-link">
-                                <img src="Image/WhatsApp Image 2025-05-03 at 3.53.09 AM.jpeg" class="card-img-top" alt="Project 1">
+                                <img src="Image/Rainwater Project.png" class="card-img-top" alt="Project 1">
                             </a>
                             <div class="portfolio-info card-body">
                                 <h4 class="card-title">Project Title One</h4>
@@ -83,7 +97,7 @@
                     </div>
 
                     <!-- Item 2 (Example: Dev, JS) -->
-                    <div class="col-lg-4 col-md-6 portfolio-item" data-aos="fade-up" data-aos-delay="200" id="project2">
+                    <div class="col-lg-4 col-md-6 col-sm-6 portfolio-item" data-aos="fade-up" data-aos-delay="200" id="project2"> <!-- Added col-sm-6 -->
                          <div class="portfolio-wrap card border-0 shadow-sm h-100">
                              <a href="[Live Project URL 2]" target="_blank" class="portfolio-img-link">
                                 <img src="assets/img/project-2.jpg" class="card-img-top" alt="Project 2">
@@ -100,7 +114,7 @@
                     </div>
 
                     <!-- Item 3 (Example: Design) -->
-                    <div class="col-lg-4 col-md-6 portfolio-item" data-aos="fade-up" data-aos-delay="300" id="project3">
+                    <div class="col-lg-4 col-md-6 col-sm-6 portfolio-item" data-aos="fade-up" data-aos-delay="300" id="project3"> <!-- Added col-sm-6 -->
                          <div class="portfolio-wrap card border-0 shadow-sm h-100">
                              <div class="portfolio-img-link">
                                 <img src="assets/img/project-3.jpg" class="card-img-top" alt="Project 3">
@@ -117,7 +131,7 @@
                     </div>
 
                     <!-- Item 4 (Example: Bootstrap, Dev) -->
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-bootstrap filter-dev" data-aos="fade-up" data-aos-delay="400" id="project4">
+                    <div class="col-lg-4 col-md-6 col-sm-6 portfolio-item filter-bootstrap filter-dev" data-aos="fade-up" data-aos-delay="400" id="project4"> <!-- Added col-sm-6 -->
                          <div class="portfolio-wrap card border-0 shadow-sm h-100">
                              <a href="[Live Project URL 4]" target="_blank" class="portfolio-img-link">
                                 <img src="assets/img/project-4.jpg" class="card-img-top" alt="Project 4">
@@ -134,7 +148,7 @@
                     </div>
 
                     <!-- Item 5 (Example: Design, Dev) -->
-                     <div class="col-lg-4 col-md-6 portfolio-item filter-design filter-dev" data-aos="fade-up" data-aos-delay="500" id="project5">
+                     <div class="col-lg-4 col-md-6 col-sm-6 portfolio-item filter-design filter-dev" data-aos="fade-up" data-aos-delay="500" id="project5"> <!-- Added col-sm-6 -->
                          <div class="portfolio-wrap card border-0 shadow-sm h-100">
                              <a href="[Live Project URL 5]" target="_blank" class="portfolio-img-link">
                                 <img src="assets/img/project-5.jpg" class="card-img-top" alt="Project 5">
@@ -149,7 +163,7 @@
                         </div>
                     </div>
                     <!-- Item 6 (Example: Dev, Bootstrap, JS) -->
-                     <div class="col-lg-4 col-md-6 portfolio-item filter-dev filter-bootstrap filter-javascript" data-aos="fade-up" data-aos-delay="600" id="project6">
+                     <div class="col-lg-4 col-md-6 col-sm-6 portfolio-item filter-dev filter-bootstrap filter-javascript" data-aos="fade-up" data-aos-delay="600" id="project6"> <!-- Added col-sm-6 -->
                          <div class="portfolio-wrap card border-0 shadow-sm h-100">
                              <a href="[Live Project URL 6]" target="_blank" class="portfolio-img-link">
                                 <img src="assets/img/project-6.jpg" class="card-img-top" alt="Project 6">
