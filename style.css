@@ -1,0 +1,1546 @@
+/* style.css */
+
+/*--------------------------------------------------------------
+# Variables & Base Styles
+--------------------------------------------------------------*/
+:root {
+    --primary-color: #00f5d4;
+    /* Vibrant Teal Accent */
+    --secondary-color: #9b5de5;
+    /* Optional Secondary Accent (Purple) */
+    --dark-color: #121212;
+    /* Very Dark Background */
+    --dark-grey: #1f1f1f;
+    /* Slightly Lighter Dark */
+    --medium-grey: #333;
+    --primary-hover-color: #00c4a8; /* Slightly darker teal for hover */
+    --light-grey: #f8f9fa;
+    /* Standard Light Background */
+    --text-light: #e8eaed;
+    /* Slightly adjusted light text */
+    --text-muted-light: rgba(232, 234, 237, 0.75);
+    /* Muted light text */
+    --text-dark: #212529;
+    /* Standard Dark Text */
+    --text-muted-dark: #6c757d;
+    /* Standard Muted Dark Text */
+    --white-color: #ffffff;
+    --black-color: #000000;
+
+    --font-family-base: 'Poppins', sans-serif;
+    --navbar-height: 70px;
+    /* Initial height */
+    --navbar-height-shrink: 60px;
+    /* Height when shrunk */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-base);
+    color: var(--text-dark);
+    background-color: var(--white-color);
+    overflow-x: hidden;
+    padding-top: var(--navbar-height);
+    /* Adjust based on initial navbar height */
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    /* Smoother fonts */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.3;
+}
+
+h4.service-heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+p {
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+p.lead {
+    font-weight: 400;
+    font-size: 1.15rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-hover-color);
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.page-section {
+    padding: 5rem 0;
+}
+
+.section-heading {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.section-subheading {
+    font-size: 1.05rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* High Contrast Text Adjustments */
+.bg-dark .text-muted,
+.bg-dark-grey .text-muted,
+.footer .text-muted,
+.portfolio-modal .text-muted {
+    color: var(--text-muted-light) !important;
+}
+
+.bg-dark h1,
+.bg-dark h2,
+.bg-dark h3,
+.bg-dark h4,
+.bg-dark h5,
+.bg-dark h6,
+.bg-dark-grey h1,
+.bg-dark-grey h2,
+.bg-dark-grey h3,
+.bg-dark-grey h4,
+.bg-dark-grey h5,
+.bg-dark-grey h6,
+.footer h1,
+.footer h2,
+.footer h3,
+.footer h4,
+.footer h5,
+.footer h6,
+.portfolio-modal h1,
+.portfolio-modal h2,
+.portfolio-modal h3,
+.portfolio-modal h4,
+.portfolio-modal h5,
+.portfolio-modal h6,
+.text-white {
+    color: var(--white-color) !important;
+}
+
+/* Use white for max contrast */
+.text-white-75 {
+    color: var(--text-muted-light) !important;
+}
+
+.text-white-50 {
+    color: rgba(232, 234, 237, 0.5) !important;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.bg-secondary {
+    background-color: var(--secondary-color) !important;
+}
+
+.bg-dark {
+    background-color: var(--dark-color) !important;
+}
+
+.bg-dark-grey {
+    background-color: var(--dark-grey) !important;
+}
+
+.bg-light {
+    background-color: var(--light-grey) !important;
+}
+
+/* Buttons */
+.btn {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+    border-width: 2px;
+    font-size: 0.9rem;
+    transform-style: preserve-3d;
+}
+
+.btn-xl {
+    padding: 1.1rem 2.2rem;
+    font-size: 1rem;
+}
+
+.btn-lg {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.95rem;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--dark-color);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--primary-hover-color);
+    border-color: var(--primary-hover-color);
+    color: var(--dark-color);
+    box-shadow: 0 8px 20px rgba(0, 245, 212, 0.5);
+    transform: translateZ(10px) scale(1.05);
+}
+
+.btn-outline-light {
+    color: var(--white-color);
+    border-color: var(--white-color);
+}
+
+.btn-outline-light:hover {
+    background-color: var(--white-color);
+    color: var(--dark-color);
+    transform: translateZ(10px) scale(1.05);
+}
+
+.btn-dark {
+    background-color: var(--medium-grey);
+    border-color: var(--medium-grey);
+    color: var(--text-light);
+}
+
+.btn-dark:hover,
+.btn-dark:focus,
+.btn-dark:active {
+    background-color: var(--dark-grey);
+    border-color: var(--dark-grey);
+    color: var(--text-light);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    transform: translateZ(10px) scale(1.05);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary.active {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    transform: translateZ(10px) scale(1.05);
+}
+
+/*--------------------------------------------------------------
+# Preloader (Keep as is)
+--------------------------------------------------------------*/
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    overflow: hidden;
+    background: var(--dark-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#preloader .loader {
+    border: 6px solid var(--dark-grey);
+    border-top: 6px solid var(--primary-color);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*--------------------------------------------------------------
+# Navigation (REVISED - Always Dark Background)
+--------------------------------------------------------------*/
+#mainNav {
+    /* Apply dark background by default */
+    background-color: rgba(18, 18, 18, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+
+    transition: padding-top 0.4s ease, padding-bottom 0.4s ease;
+    /* Only transition padding */
+    padding-top: 1rem;
+    /* Initial padding */
+    padding-bottom: 1rem;
+    border-bottom: none;
+}
+
+#mainNav .navbar-brand {
+    font-weight: 700;
+    color: var(--white-color);
+    font-size: 1.5rem;
+    transition: font-size 0.4s ease;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+    color: rgba(232, 234, 237, 0.8);
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    transition: color 0.3s ease;
+    position: relative;
+    font-size: 0.95rem;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link:hover,
+#mainNav .navbar-nav .nav-item .nav-link:focus {
+    color: var(--white-color);
+}
+
+#mainNav .navbar-nav .nav-item .nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+/* Navbar shrink effect (Only padding/height changes now) */
+#mainNav.navbar-shrink {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    /* Background properties are now default, no change needed here */
+}
+
+#mainNav.navbar-shrink .navbar-brand {
+    font-size: 1.35rem;
+}
+
+/* Navbar Toggler */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 0.75rem;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28232, 234, 237, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Collapsed Menu */
+@media (max-width: 991.98px) {
+
+    /* #mainNav background is already dark */
+    #mainNav .navbar-collapse {
+        background-color: rgba(18, 18, 18, 0.98);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 0.75rem;
+        padding: 1rem;
+        max-height: calc(100vh - var(--navbar-height-shrink) - 1rem);
+        overflow-y: auto;
+    }
+
+    #mainNav .navbar-nav .nav-item .nav-link {
+        padding: 0.75rem 0.5rem;
+        color: var(--text-muted-light);
+    }
+
+    #mainNav .navbar-nav .nav-item .nav-link.active {
+        color: var(--primary-color) !important;
+    }
+
+    #mainNav .navbar-nav .nav-item .nav-link.active::after {
+        display: none;
+    }
+}
+
+/*--------------------------------------------------------------
+# Hero Section (Home Page - REVISED)
+--------------------------------------------------------------*/
+.hero-section-home {
+    position: relative;
+    padding-top: calc(var(--navbar-height) + 4rem);
+    padding-bottom: 4rem;
+    min-height: 100vh;
+    /* Darker gradient overlay applied directly here for simplicity */
+    background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(18, 18, 18, 0.95)), url("assets/img/hero-bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: var(--white-color);
+    display: flex;
+    align-items: center;
+    perspective: 1200px;
+    overflow: hidden;
+}
+
+.hero-section-home::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    background: url("assets/img/hero-bg.jpg") no-repeat center center/cover;
+    transform-style: preserve-3d;
+    transform: translateZ(-50px) scale(1.1);
+    filter: brightness(0.7);
+    z-index: 0;
+    transition: transform 0.5s ease;
+}
+
+.hero-section-home:hover::before {
+    transform: translateZ(-30px) scale(1.15) rotateY(5deg) rotateX(3deg);
+}
+
+.hero-section-home .profile-picture {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border: 5px solid rgba(0, 245, 212, 0.3);
+}
+
+.hero-section-home .highlight {
+    color: var(--primary-color);
+    font-weight: 600;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 2px;
+}
+
+.hero-section-home .typed-cursor {
+    color: var(--primary-color);
+    opacity: 1;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* REMOVED .hero-overlay for home, as gradient is now part of background */
+.hero-section-home .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Scroll Down Indicator */
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.scroll-down-indicator a {
+    display: block;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+    transition: color 0.3s ease;
+}
+
+.scroll-down-indicator a:hover {
+    color: var(--white-color);
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/*--------------------------------------------------------------
+# Page Headers (REVISED - Stronger Overlay)
+--------------------------------------------------------------*/
+.page-header {
+    position: relative;
+    padding: 7rem 0 5rem 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--white-color);
+}
+
+.page-header .page-header-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Stronger overlay for sub-pages */
+.page-header .header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* Darker gradient ensures text visibility */
+    background: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 1));
+    z-index: 0;
+}
+
+/* Specific Backgrounds (Keep as is or update URLs) */
+.about-header {
+    background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920');
+}
+
+.portfolio-header {
+    background-image: url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920');
+}
+
+.services-header {
+    background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920');
+}
+
+.contact-header {
+    background-image: url('https://images.unsplash.com/photo-1587560699334-cc4ff634909a?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920');
+}
+
+/*--------------------------------------------------------------
+# Home Page Specific Sections (Refined)
+--------------------------------------------------------------*/
+#home-services .fa-stack {
+    transition: transform 0.3s ease;
+}
+
+#home-services .col-md-4:hover .fa-stack {
+    transform: scale(1.1);
+}
+
+.portfolio-item-teaser {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item-teaser:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.portfolio-item-teaser .card-img-top {
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.portfolio-item-teaser .card-body {
+    padding: 1.25rem;
+}
+
+.portfolio-item-teaser .card-title {
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+}
+
+.portfolio-item-teaser .card-text {
+    margin-bottom: 1rem;
+}
+
+.cta-section {
+    position: relative;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    padding: 6rem 0;
+}
+
+.cta-section .cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/img/cta-pattern.svg') center center repeat;
+    opacity: 0.08;
+    z-index: 1;
+}
+
+/*--------------------------------------------------------------
+# About Page Specific Sections (REVISED - Skills Text)
+--------------------------------------------------------------*/
+#skills .progress {
+    height: 20px;
+    /* Make bar slightly taller to fit text */
+    border-radius: 5px;
+    background-color: #e9ecef;
+    font-size: 0.8rem;
+    /* Control text size */
+    overflow: hidden;
+    /* Ensure text stays inside */
+}
+
+#skills .progress-bar {
+    border-radius: 0;
+    /* Remove radius for better text fit */
+    transition: width 1s ease-in-out;
+    color: var(--dark-color);
+    /* Dark text for contrast on light bars */
+    text-shadow: none;
+    font-weight: 600;
+    display: flex;
+    /* Center text */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Optional: Different text color for secondary bars if needed */
+#skills .progress-bar.bg-secondary {
+    color: var(--white-color);
+    /* Light text for dark purple bar */
+}
+
+#skills .skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#skills .skill-name {
+    font-weight: 600;
+    margin-right: 1rem;
+    white-space: nowrap;
+    font-size: 0.9rem;
+}
+
+/*--------------------------------------------------------------
+# Navbar Button Hover (Green Accent)
+--------------------------------------------------------------*/
+#mainNav .navbar-nav .nav-item .nav-link:hover,
+#mainNav .navbar-nav .nav-item .nav-link:focus {
+    color: var(--primary-hover-color) !important;
+}
+
+/*--------------------------------------------------------------
+# Dark and Light Mode Variables and Styles
+--------------------------------------------------------------*/
+:root {
+    /* Light mode colors */
+    --background-color: var(--white-color);
+    --text-color: var(--text-dark);
+    --link-color: var(--primary-color);
+    --link-hover-color: var(--primary-hover-color);
+    --navbar-background: rgba(18, 18, 18, 0.92);
+    --navbar-text-color: var(--white-color);
+    --footer-background: var(--dark-color);
+    --footer-text-color: var(--text-muted-light);
+}
+
+body.light-mode {
+    /* Base styles are already light mode via :root */
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Apply general link colors based on mode */
+body a {
+    color: var(--link-color);
+}
+body a:hover,
+body a:focus {
+    color: var(--link-hover-color);
+}
+
+
+/* Dark mode overrides */
+body.dark-mode {
+    --background-color: var(--dark-color);
+    --text-color: var(--text-light);
+    --link-color: var(--primary-color);
+    --link-hover-color: var(--primary-hover-color);
+    --navbar-background: rgba(18, 18, 18, 0.92);
+    --navbar-text-color: var(--text-light);
+    --footer-background: var(--dark-grey);
+    --footer-text-color: var(--text-muted-light);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Dark mode specific overrides */
+
+body.dark-mode #mainNav {
+    background-color: var(--navbar-background);
+}
+
+body.dark-mode #mainNav .navbar-nav .nav-link {
+    color: var(--navbar-text-color);
+}
+
+body.dark-mode #mainNav .navbar-nav .nav-link:hover,
+body.dark-mode #mainNav .navbar-nav .nav-link:focus {
+    color: var(--link-hover-color);
+}
+
+body.dark-mode .footer {
+    background-color: var(--footer-background);
+    color: var(--footer-text-color);
+}
+
+/* Adjust components for dark mode */
+body.dark-mode #skills .progress {
+    background-color: var(--medium-grey); /* Darker track */
+}
+body.dark-mode .timeline .timeline-heading .subheading {
+    color: var(--text-muted-light);
+}
+
+/*--------------------------------------------------------------
+# Timeline Section (REVISED - Mobile First & Responsive)
+--------------------------------------------------------------*/
+.timeline {
+    position: relative;
+    padding: 0;
+    list-style: none;
+}
+
+/* The vertical line - Positioned left on mobile */
+.timeline:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 40px; /* Position for mobile */
+    width: 2px;
+    margin-left: -1.5px;
+    content: "";
+    background-color: #e9ecef; /* Light grey line */
+}
+
+/* Each timeline item */
+.timeline>li {
+    position: relative;
+    min-height: 50px; /* Ensure space even for small content */
+    margin-bottom: 50px;
+}
+
+/* Clearfix */
+.timeline>li:after,
+.timeline>li:before {
+    display: table;
+    content: " ";
+}
+.timeline>li:after {
+    clear: both;
+}
+
+/* The circle icon/image on the timeline */
+.timeline>li .timeline-image {
+    position: absolute;
+    z-index: 100;
+    left: 40px; /* Align with the line */
+    top: 0;
+    width: 80px; /* Mobile size */
+    height: 80px;
+    margin-left: -40px; /* Center the image on the line */
+    text-align: center;
+    color: white;
+    border: 7px solid #e9ecef; /* Match line color */
+    border-radius: 100%;
+    background-color: var(--primary-color); /* Default icon background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem; /* Icon size */
+}
+
+.timeline>li .timeline-image h4 {
+    font-size: 10px; /* Text inside the last circle */
+    line-height: 14px;
+    margin-top: 0;
+    color: var(--dark-color);
+    font-weight: bold;
+}
+
+/* The content panel - Positioned to the right on mobile */
+.timeline>li .timeline-panel {
+    position: relative;
+    /* Use margin instead of float for simpler stacking */
+    width: calc(100% - 90px); /* Width relative to image/line */
+    margin-left: 90px; /* Push panel right of image */
+    padding: 20px;
+    text-align: left;
+    border: 1px solid #e9ecef; /* Light border */
+    border-radius: 8px;
+    background-color: var(--white-color);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Remove bottom margin from the very last item */
+.timeline>li:last-child {
+    margin-bottom: 0;
+}
+
+/* Panel heading styles */
+.timeline .timeline-heading h4 {
+    margin-top: 0;
+    color: inherit;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+.timeline .timeline-heading .subheading {
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-transform: none;
+    color: var(--text-muted-dark);
+}
+
+/* Panel body styles */
+.timeline .timeline-body>ul,
+.timeline .timeline-body>p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+/* Style for the last "call to action" circle */
+.timeline .timeline-image-last {
+    background-color: var(--secondary-color);
+}
+.timeline .timeline-image-last h4 {
+    color: var(--white-color);
+    font-size: 0.8rem;
+    line-height: 1.3;
+}
+
+/* Pointer Arrows (Mobile: All panels on right, arrows point left) */
+.timeline>li .timeline-panel::before {
+    position: absolute;
+    top: 26px;
+    left: -15px; /* Pointing left */
+    right: auto;
+    display: inline-block;
+    border-top: 15px solid transparent;
+    border-right: 15px solid #e9ecef; /* Arrow border */
+    border-left: 0 solid #e9ecef;
+    border-bottom: 15px solid transparent;
+    content: " ";
+}
+.timeline>li .timeline-panel::after {
+    position: absolute;
+    top: 27px;
+    left: -14px; /* Pointing left */
+    right: auto;
+    display: inline-block;
+    border-top: 14px solid transparent;
+    border-right: 14px solid var(--white-color); /* Arrow fill (match panel bg) */
+    border-left: 0 solid var(--white-color);
+    border-bottom: 14px solid transparent;
+    content: " ";
+}
+
+/* --- Desktop Timeline Styles (Alternating) --- */
+@media (min-width: 768px) { /* Apply from tablet size up */
+    .timeline:before {
+        left: 50%; /* Center the line */
+    }
+
+    .timeline>li .timeline-panel {
+        width: 41%; /* Adjust width for side-by-side */
+        float: left; /* Float left by default */
+        margin-left: 0; /* Reset mobile margin */
+    }
+
+    .timeline>li .timeline-image {
+        left: 50%; /* Center image on the line */
+        width: 100px; /* Slightly larger image */
+        height: 100px;
+        margin-left: -50px; /* Adjust margin to center */
+    }
+
+    /* Right-aligned panels (default items) */
+    .timeline>li:not(.timeline-inverted) .timeline-panel {
+         float: right; /* Override float left */
+    }
+
+    /* --- Pointer Arrows for Desktop --- */
+    /* Default (Right Panel, points left) */
+    .timeline>li:not(.timeline-inverted) .timeline-panel::before {
+        left: -15px;
+        right: auto;
+        border-right-width: 15px; border-left-width: 0;
+    }
+    .timeline>li:not(.timeline-inverted) .timeline-panel::after {
+        left: -14px;
+        right: auto;
+        border-right-width: 14px; border-left-width: 0;
+    }
+
+    /* Inverted (Left Panel, points right) */
+    .timeline>li.timeline-inverted .timeline-panel::before {
+        right: -15px;
+        left: auto;
+        border-left-width: 15px; border-right-width: 0;
+    }
+    .timeline>li.timeline-inverted .timeline-panel::after {
+        right: -14px;
+        left: auto;
+        border-left-width: 14px; border-right-width: 0;
+    }
+}
+
+/* Further adjustments for larger screens */
+@media (min-width: 992px) {
+     .timeline>li .timeline-panel {
+        width: 43%; /* More space */
+        padding: 25px;
+    }
+     .timeline>li .timeline-image {
+        width: 120px; /* Even larger image */
+        height: 120px;
+        margin-left: -60px; /* Adjust margin */
+        font-size: 1.8rem;
+    }
+    /* Adjust arrow position if image size changes significantly */
+    .timeline>li .timeline-panel::before,
+    .timeline>li .timeline-panel::after {
+        top: 35px; /* Adjust vertical position */
+    }
+    /* Optional: Make arrows slightly larger */
+     .timeline>li:not(.timeline-inverted) .timeline-panel::before { border-top-width: 20px; border-right-width: 20px; border-bottom-width: 20px; left: -20px; }
+     .timeline>li:not(.timeline-inverted) .timeline-panel::after { border-top-width: 19px; border-right-width: 19px; border-bottom-width: 19px; left: -19px; }
+     .timeline>li.timeline-inverted .timeline-panel::before { border-top-width: 20px; border-left-width: 20px; border-bottom-width: 20px; right: -20px; }
+     .timeline>li.timeline-inverted .timeline-panel::after { border-top-width: 19px; border-left-width: 19px; border-bottom-width: 19px; right: -19px; }
+}
+
+/* Dark Mode Adjustments for Timeline */
+body.dark-mode .timeline:before {
+    background-color: var(--medium-grey); /* Darker line */
+}
+body.dark-mode .timeline>li .timeline-panel {
+    background-color: var(--dark-grey);
+    border-color: var(--medium-grey);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+}
+body.dark-mode .timeline>li .timeline-image {
+    border-color: var(--medium-grey);
+    /* Icon background (primary/secondary) and text color should be handled by general rules */
+}
+/* Dark mode arrows */
+body.dark-mode .timeline>li .timeline-panel::before {
+    border-left-color: var(--medium-grey); /* For inverted pointing right */
+    border-right-color: var(--medium-grey); /* For normal pointing left */
+}
+body.dark-mode .timeline>li .timeline-panel::after {
+    border-left-color: var(--dark-grey); /* Arrow fill for inverted */
+    border-right-color: var(--dark-grey); /* Arrow fill for normal */
+}
+
+/*--------------------------------------------------------------
+# Portfolio Page (Keep refined styles from previous revision)
+--------------------------------------------------------------*/
+#portfolio-grid .filter-button {
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    padding: 0.6rem 1.2rem;
+}
+
+.portfolio-item {
+    margin-bottom: 30px;
+    overflow: visible;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    display: block;
+}
+
+.portfolio-item.hide {
+    opacity: 0;
+    transform: scale(0.9);
+    height: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, height 0s 0.4s, margin 0s 0.4s, padding 0s 0.4s;
+}
+
+.portfolio-wrap {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background: var(--white-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 0.375rem;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.portfolio-wrap:hover {
+    transform: rotateY(10deg) rotateX(5deg) translateZ(20px);
+    box-shadow: 0 20px 40px rgba(0, 245, 212, 0.4);
+}
+
+.portfolio-wrap .portfolio-img-link {
+    display: block;
+    overflow: hidden;
+}
+
+.portfolio-wrap img {
+    transition: transform 0.4s ease;
+}
+
+.portfolio-wrap .portfolio-info {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    transition: all 0.35s ease-in-out;
+    background: rgba(18, 18, 18, 0.9);
+    padding: 15px;
+    text-align: center;
+}
+
+.portfolio-wrap .portfolio-info h4 {
+    font-size: 1.1rem;
+    color: var(--white-color);
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.portfolio-wrap .portfolio-info p {
+    color: var(--text-muted-light);
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.portfolio-wrap .portfolio-links {
+    text-align: center;
+}
+
+.portfolio-wrap .portfolio-links a {
+    color: var(--white-color);
+    margin: 0 4px;
+    font-size: 1.1rem;
+    display: inline-block;
+    transition: 0.3s;
+    line-height: 1;
+    padding: 6px;
+    border-radius: 50%;
+    background-color: rgba(0, 245, 212, 0.15);
+}
+
+.portfolio-wrap .portfolio-links a:hover {
+    color: var(--primary-color);
+    background-color: rgba(0, 245, 212, 0.3);
+}
+
+.portfolio-wrap:hover {
+    transform: translateY(-5px);
+}
+
+.portfolio-wrap:hover img {
+    transform: scale(1.08);
+}
+
+.portfolio-wrap:hover .portfolio-info {
+    opacity: 1;
+}
+
+/* Portfolio Modal */
+.portfolio-modal .modal-dialog {
+    max-width: 900px;
+}
+
+.portfolio-modal .modal-content {
+    border-radius: 8px;
+    border: none;
+}
+
+.portfolio-modal .modal-header {
+    padding: 1.25rem 1.5rem;
+}
+
+.portfolio-modal .modal-body {
+    padding: 1.5rem 2rem;
+}
+
+.portfolio-modal h5 {
+    font-size: 1.6rem;
+}
+
+.portfolio-modal h6 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Style for subheadings in modal */
+.portfolio-modal p,
+.portfolio-modal ul {
+    font-size: 0.95rem;
+}
+
+/* Adjust text size in modal */
+.portfolio-modal p.lead {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.portfolio-modal ul li {
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-modal ul li strong {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.portfolio-modal .badge {
+    font-size: 0.75rem;
+    padding: 0.4em 0.6em;
+}
+
+/* Adjust badge size */
+.portfolio-modal .btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+    opacity: 0.8;
+}
+
+.portfolio-modal .btn-close-white:hover {
+    opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Services Page (Keep refined styles from previous revision)
+--------------------------------------------------------------*/
+.service-item-detailed {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item-detailed:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+}
+
+.service-item-detailed .icon i {
+    transition: transform 0.3s ease;
+    font-size: 2rem;
+}
+
+.service-item-detailed:hover .icon i {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.feature-box i {
+    transition: transform 0.3s ease;
+    font-size: 1.8rem;
+}
+
+.feature-box:hover i {
+    transform: scale(1.15);
+}
+
+/*--------------------------------------------------------------
+# Contact Page (Keep refined styles from previous revision)
+--------------------------------------------------------------*/
+#contact-form-section .form-control {
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    padding: 1.1rem 1rem;
+    font-size: 0.9rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border-radius: 0.375rem;
+}
+
+#contact-form-section .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(0, 245, 212, 0.25);
+    background-color: #fff;
+    color: var(--text-dark);
+}
+
+#contact-form-section .form-floating>label {
+    padding: 1.1rem 1rem;
+    color: var(--text-muted-dark);
+    font-size: 0.9rem;
+}
+
+#contact-form-section .form-floating>.form-control:focus~label,
+#contact-form-section .form-floating>.form-control:not(:placeholder-shown):not(:focus)~label {
+    /* Added :not(:focus) */
+    opacity: 0.65;
+    transform: scale(0.85) translateY(-0.6rem) translateX(0.15rem);
+    background-color: #fff;
+    padding: 0 0.4em;
+    height: auto;
+}
+
+#contact-form-section .invalid-feedback {
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
+/* Style invalid inputs */
+#contact-form-section .form-control.is-invalid {
+    border-color: #dc3545;
+}
+
+#contact-form-section .form-control.is-invalid:focus {
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+#contact-info .contact-info-box i {
+    font-size: 1.8rem;
+}
+
+#contact-info .contact-info-box a {
+    color: var(--text-dark);
+    word-break: break-word;
+}
+
+#contact-info .contact-info-box a:hover {
+    color: var(--primary-color);
+}
+
+/*--------------------------------------------------------------
+# Footer (Keep refined styles from previous revision)
+--------------------------------------------------------------*/
+.footer {
+    background-color: var(--dark-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-muted-light);
+    padding: 2.5rem 0;
+}
+
+.footer .btn-social {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 100%;
+    background-color: var(--medium-grey);
+    color: var(--text-light);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.footer .btn-social:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    transform: translateY(-3px);
+}
+
+.footer a.link-light {
+    color: var(--text-muted-light) !important;
+    transition: color 0.3s ease;
+}
+
+.footer a.link-light:hover {
+    color: var(--white-color) !important;
+}
+
+.footer .small {
+    font-size: 0.85rem;
+}
+
+/*--------------------------------------------------------------
+# Responsive Adjustments (Keep refined styles from previous revision)
+--------------------------------------------------------------*/
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    body {
+        padding-top: var(--navbar-height);
+    }
+
+    /* Ensure correct padding */
+    .page-section {
+        padding: 6rem 0;
+    }
+
+    .section-heading {
+        font-size: 2.5rem;
+    }
+
+    .section-subheading {
+        font-size: 1.1rem;
+        margin-bottom: 4rem;
+    }
+
+    .hero-section-home {
+        padding-top: calc(var(--navbar-height) + 6rem);
+        padding-bottom: 6rem;
+    }
+
+    .hero-section-home .profile-picture {
+        width: 180px;
+        height: 180px;
+    }
+
+    .hero-section-home h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-section-home h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 991.98px) {
+    body {
+        padding-top: var(--navbar-height-shrink);
+    }
+
+    /* Adjust for shrunk navbar */
+    .hero-section-home h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-section-home h2 {
+        font-size: 1.3rem;
+    }
+
+    .page-header {
+        padding: 6rem 0 4rem 0;
+    }
+
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+    body {
+        font-size: 15px;
+    }
+
+    .page-section {
+        padding: 3.5rem 0;
+    }
+
+    .section-heading {
+        font-size: 1.9rem;
+    }
+
+    .section-subheading {
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .hero-section-home {
+        padding-top: calc(var(--navbar-height-shrink) + 3rem);
+        padding-bottom: 3rem;
+        text-align: center;
+        background-attachment: scroll;
+        min-height: auto;
+    }
+
+    .hero-section-home .profile-picture {
+        width: 140px;
+        height: 140px;
+    }
+
+    .hero-section-home h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-section-home h2 {
+        font-size: 1.1rem;
+    }
+
+    .hero-section-home p.lead {
+        font-size: 1.05rem;
+        margin-bottom: 2rem;
+    }
+
+    .btn-xl {
+        padding: 1rem 1.8rem;
+        font-size: 0.9rem;
+    }
+
+    .page-header {
+        padding: 5rem 0 3rem 0;
+    }
+
+    .page-header h1 {
+        font-size: 2.1rem;
+    }
+
+    /* Timeline adjustments for smaller screens are now handled by base styles */
+
+    .footer {
+        text-align: center;
+    }
+
+    .footer .text-lg-start,
+    .footer .text-lg-end {
+        text-align: center !important;
+    }
+}
+
+/* Dark Mode Toggle Button Styles */
+#darkModeToggle {
+    width: 38px;
+    height: 38px;
+    padding: 0.25rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#darkModeToggle i {
+    font-size: 1.2rem;
+    color: var(--white-color);
+}
+
+#darkModeToggle:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+}
+
+/* Responsive adjustments for dark mode toggle */
+@media (max-width: 575.98px) {
+    #darkModeToggle {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    body {
+        font-size: 14px;
+    }
+
+    .page-section {
+        padding: 3rem 1rem;
+    }
+
+    /* Add horizontal padding */
+    .section-heading {
+        font-size: 1.7rem;
+    }
+
+    .section-subheading {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-section-home h1 {
+        font-size: 1.9rem;
+    }
+
+    .hero-section-home h2 {
+        font-size: 1rem;
+    }
+
+    .hero-section-home .profile-picture {
+        width: 120px;
+        height: 120px;
+    }
+
+    .hero-section-home .btn {
+        display: block;
+        width: 90%;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Stack buttons, limit width */
+    .hero-section-home .btn+.btn {
+        margin-top: 1rem;
+    }
+
+    .page-header {
+        padding: 4rem 1rem 2.5rem 1rem;
+    }
+
+    /* Add horizontal padding */
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .page-header p.lead {
+        font-size: 0.95rem;
+    }
+
+    #home-services .col-md-4 {
+        margin-bottom: 1.5rem;
+    }
+
+    #contact-info .col-md-4 {
+        margin-bottom: 1.5rem;
+    }
+
+    .portfolio-modal .modal-body {
+        padding: 1rem 1rem;
+    }
+}

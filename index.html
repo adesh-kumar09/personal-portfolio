@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Your Name] - Expert Frontend Developer & Web Designer</title> <!-- Enhanced Title -->
+    <meta name="description" content="Portfolio of [Your Name], a highly skilled Frontend Developer & Web Designer specializing in creating impactful, modern, and responsive web experiences."> <!-- Enhanced Description -->
+
+    <!-- Libraries and CSS (Keep these the same) -->
+    <!-- Bootstrap CSS - For responsive layout and components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome CSS - For icons used throughout the site -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts - Poppins font family for typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS - Animate On Scroll library for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS - Main stylesheet for site styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Preloader (Keep as is) -->
+    <div id="preloader"><div class="loader"></div></div>
+
+    <!-- Navigation (REMOVED mainNav-scrolled class - dark bg is now default) -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">[Your Name]</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    
+                    <!-- <li class="nav-item d-flex align-items-center ms-3">
+                        <button id="darkModeToggle" class="btn btn-outline-light rounded-circle p-2" aria-label="Toggle dark mode" title="Toggle dark mode" style="width: 38px; height: 38px;">
+                            <i id="darkModeIcon" class="fas fa-sun"></i>
+                        </button>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+       <!-- Hero Section (REVISED DESIGN & CONTENT) -->
+       <!-- ADDED pt-5 class here -->
+       <header class="hero-section-home pt-5" id="hero">
+           <div class="container h-100">
+               <div class="row h-100 justify-content-center align-items-center text-center">
+                   <div class="col-lg-10 col-xl-9"> <!-- Slightly wider column -->
+                       <div data-aos="zoom-in-down"> <!-- Different animation -->
+                           <img src="Image/WhatsApp Image 2025-05-03 at 3.53.09 AM.jpeg" alt="[Your Name]" class="img-fluid rounded-circle profile-picture mb-4 shadow-lg">
+                       </div>
+                       <h1 class="text-white display-3 fw-bold mb-3" data-aos="fade-up" data-aos-delay="100">Crafting Digital Excellence</h1> <!-- More impactful headline -->
+                       <h2 class="text-white-75 fw-light mb-4 h4" data-aos="fade-up" data-aos-delay="200">I'm [Your Name], a <span class="typed-text highlight" data-typed-items="Frontend Developer, Web Designer, UI/UX Architect, Digital Problem Solver"></span></h2> <!-- Enhanced typed strings -->
+                       <p class="text-white-75 lead mb-5 mx-auto" style="max-width: 650px;" data-aos="fade-up" data-aos-delay="300">Transforming ideas into pixel-perfect, high-performance web applications that engage users and drive results.</p> <!-- More professional description -->
+                       <div data-aos="fade-up" data-aos-delay="400">
+                           <a class="btn btn-primary btn-xl me-sm-3 mb-3 mb-sm-0" href="portfolio.html">Explore My Work</a>
+                           <a class="btn btn-outline-light btn-xl mb-3 mb-sm-0" href="contact.html">Start a Project</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="hero-overlay"></div> <!-- Overlay ensures text visibility -->
+           <!-- Scroll Down Arrow (Keep as is) -->
+           <div class="scroll-down-indicator">
+               <a href="#home-services" aria-label="Scroll down">
+                   <i class="fas fa-chevron-down"></i>
+               </a>
+           </div>
+       </header>
+   
+    <main>
+        <!-- Quick Services Overview (Keep structure, content refined) -->
+        <section class="page-section bg-light" id="home-services">
+            <div class="container">
+                <div class="text-center" data-aos="fade-up">
+                    <h2 class="section-heading text-uppercase">Core Expertise</h2>
+                    <h3 class="section-subheading text-muted mb-5">Delivering high-quality digital solutions tailored to your needs.</h3>
+                </div>
+                <div class="row text-center gy-4">
+                    <div class="col-md-4" data-aos="zoom-in-up" data-aos-delay="100"> <!-- Different animation -->
+                        <span class="fa-stack fa-3x mb-3">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-palette fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3 service-heading">Intuitive Web Design</h4>
+                        <p class="text-muted px-md-3">User-centric designs focused on aesthetics, usability, and achieving business goals.</p>
+                    </div>
+                    <div class="col-md-4" data-aos="zoom-in-up" data-aos-delay="200">
+                        <span class="fa-stack fa-3x mb-3">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-laptop-code fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3 service-heading">Advanced Frontend Development</h4>
+                        <p class="text-muted px-md-3">Clean, efficient, and scalable code using HTML5, CSS3, JS (ES6+), jQuery, and Bootstrap.</p>
+                    </div>
+                    <div class="col-md-4" data-aos="zoom-in-up" data-aos-delay="300">
+                        <span class="fa-stack fa-3x mb-3">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-mobile-alt fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3 service-heading">Seamless Responsive Layouts</h4>
+                        <p class="text-muted px-md-3">Pixel-perfect experiences across all devices, ensuring accessibility and performance.</p>
+                    </div>
+                </div>
+                 <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
+                     <a href="services.html" class="btn btn-dark btn-lg">Discover My Services</a>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Featured Portfolio Teaser (Keep structure, content refined) -->
+        <section class="page-section bg-dark text-white" id="home-portfolio">
+            <div class="container">
+                <div class="text-center" data-aos="fade-up">
+                    <h2 class="section-heading text-uppercase text-white">Showcase</h2>
+                    <h3 class="section-subheading text-white-75 mb-5">Selected projects demonstrating my capabilities.</h3>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <!-- Featured Project 1 -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="portfolio-item-teaser card bg-dark-grey border-0 shadow-sm h-100">
+                            <a href="[Live Project URL 1]" target="_blank" title="Visit Project 1">
+                                <img class="card-img-top" src="assets/img/project-1.jpg" alt="Project 1 Thumbnail">
+                            </a>
+                            <div class="card-body d-flex flex-column"> <!-- Flex column for button alignment -->
+                                <h5 class="card-title text-white">Project Title One</h5>
+                                <p class="card-text text-white-75 small mb-3 flex-grow-1">Highlight a key achievement or technology used in this project (e.g., Complex JS integration).</p>
+                                <a href="portfolio.html#project1" class="btn btn-sm btn-outline-primary mt-auto align-self-start">View Details</a> <!-- Align button -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Featured Project 2 -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                         <div class="portfolio-item-teaser card bg-dark-grey border-0 shadow-sm h-100">
+                            <a href="[Live Project URL 2]" target="_blank" title="Visit Project 2">
+                                <img class="card-img-top" src="assets/img/project-2.jpg" alt="Project 2 Thumbnail">
+                            </a>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-white">Project Title Two</h5>
+                                <p class="card-text text-white-75 small mb-3 flex-grow-1">Focus on the design aspect or specific framework implementation (e.g., Custom Bootstrap theme).</p>
+                                <a href="portfolio.html#project2" class="btn btn-sm btn-outline-primary mt-auto align-self-start">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Featured Project 3 -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                         <div class="portfolio-item-teaser card bg-dark-grey border-0 shadow-sm h-100">
+                            <a href="[Live Project URL 3]" target="_blank" title="Visit Project 3">
+                                <img class="card-img-top" src="assets/img/project-3.jpg" alt="Project 3 Thumbnail">
+                             </a>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-white">Project Title Three</h5>
+                                <p class="card-text text-white-75 small mb-3 flex-grow-1">Mention a specific challenge overcome or a unique feature implemented.</p>
+                                <a href="portfolio.html#project3" class="btn btn-sm btn-outline-primary mt-auto align-self-start">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
+                     <a href="portfolio.html" class="btn btn-primary btn-lg">See Full Portfolio</a>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section (Keep as is) -->
+        <section class="page-section cta-section text-white text-center">
+            <div class="container position-relative">
+                 <div class="cta-overlay"></div>
+                 <div class="row justify-content-center position-relative" style="z-index: 2;">
+                    <div class="col-lg-8">
+                        <h2 class="display-5 fw-bold mb-4" data-aos="zoom-in">Ready to Elevate Your Web Presence?</h2> <!-- Stronger CTA headline -->
+                        <p class="lead text-white-75 mb-5" data-aos="fade-up" data-aos-delay="100">Let's collaborate to build something exceptional. Contact me to discuss your project requirements.</p>
+                        <a class="btn btn-primary btn-xl" href="contact.html" data-aos="zoom-in" data-aos-delay="200">Let's Talk!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (Keep as is) -->
+    <footer class="footer bg-dark py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-start text-center text-white mb-3 mb-lg-0 small">Copyright &copy; <span id="currentYear"></span> - [Your Name]</div>
+                <div class="col-lg-4 my-3 my-lg-0 text-center">
+                    <a class="btn btn-dark btn-social mx-2" href="[Your LinkedIn URL]" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="[Your GitHub URL]" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+                <div class="col-lg-4 text-lg-end text-center text-white-50 small">
+                    <a href="#!" class="link-light text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#!" class="link-light text-decoration-none">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Libraries and app.js (Keep includes the same) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
