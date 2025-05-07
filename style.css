@@ -14,13 +14,13 @@
     /* Slightly Lighter Dark */
     --medium-grey: #333;
     --primary-hover-color: #00c4a8; /* Slightly darker teal for hover */
-    --light-grey: #f8f9fa;
+    /* --light-grey: #f8f9fa; */ /* No longer the primary light background */
     /* Standard Light Background */
     --text-light: #e8eaed;
     /* Slightly adjusted light text */
     --text-muted-light: rgba(232, 234, 237, 0.75);
     /* Muted light text */
-    --text-dark: #212529;
+    /* --text-dark: #212529; */ /* No longer the primary dark text */
     /* Standard Dark Text */
     --text-muted-dark: #6c757d;
     /* Standard Muted Dark Text */
@@ -32,6 +32,17 @@
     /* Initial height */
     --navbar-height-shrink: 60px;
     /* Height when shrunk */
+
+    /* --- DEFAULT DARK THEME VARIABLES --- */
+    --background-color: var(--dark-color);         /* Default page background */
+    --text-color: var(--text-light);               /* Default text color */
+    --card-background-color: var(--dark-grey);     /* Default for cards, panels */
+    --border-color-default: var(--medium-grey);      /* Default border color on dark */
+    --input-background-color: var(--dark-grey);    /* Default for form inputs */
+    --input-text-color: var(--text-light);
+    --input-border-color: var(--medium-grey);
+    --input-placeholder-color: var(--text-muted-light);
+    --light-grey-replacement: var(--dark-grey); /* For elements that were .bg-light */
 }
 
 html {
@@ -40,8 +51,8 @@ html {
 
 body {
     font-family: var(--font-family-base);
-    color: var(--text-dark);
-    background-color: var(--white-color);
+    color: var(--text-color); /* Updated to default text color */
+    background-color: var(--background-color); /* Updated to default background */
     overflow-x: hidden;
     padding-top: var(--navbar-height);
     /* Adjust based on initial navbar height */
@@ -58,8 +69,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: 700;
-    color: var(--text-dark);
+    font-weight: 700;    
+    color: var(--text-color); /* Updated to default text color */
     line-height: 1.3;
 }
 
@@ -181,7 +192,7 @@ img {
 }
 
 .bg-light {
-    background-color: var(--light-grey) !important;
+    background-color: var(--light-grey-replacement) !important; /* Updated for dark theme */
 }
 
 /* Buttons */
@@ -413,8 +424,8 @@ img {
     padding-top: calc(var(--navbar-height) + 4rem);
     padding-bottom: 4rem;
     min-height: 100vh;
-    /* Darker gradient overlay applied directly here for simplicity */
-    background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(18, 18, 18, 0.95)), url("assets/img/hero-bg.jpg");
+    /* Lighter gradient overlay to make background image more visible */
+    background: linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.6)), url("assets/img/hero-bg.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -549,8 +560,8 @@ img {
     left: 0;
     height: 100%;
     width: 100%;
-    /* Darker gradient ensures text visibility */
-    background: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 1));
+    /* Lighter gradient to make background image more visible */
+    background: linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.6));
     z-index: 0;
 }
 
@@ -632,8 +643,8 @@ img {
 #skills .progress {
     height: 20px;
     /* Make bar slightly taller to fit text */
-    border-radius: 5px;
-    background-color: #e9ecef;
+    border-radius: 5px;    
+    background-color: var(--medium-grey); /* Darker track for dark theme */
     font-size: 0.8rem;
     /* Control text size */
     overflow: hidden;
@@ -688,10 +699,10 @@ img {
 --------------------------------------------------------------*/
 :root {
     /* Light mode colors */
-    --background-color: var(--white-color);
-    --text-color: var(--text-dark);
-    --link-color: var(--primary-color);
-    --link-hover-color: var(--primary-hover-color);
+    /* --background-color: var(--white-color); */ /* Now defined above for dark default */
+    /* --text-color: var(--text-dark); */ /* Now defined above for dark default */
+    --link-color: var(--primary-color); /* Remains the same */
+    --link-hover-color: var(--primary-hover-color); /* Remains the same */
     --navbar-background: rgba(18, 18, 18, 0.92);
     --navbar-text-color: var(--white-color);
     --footer-background: var(--dark-color);
@@ -699,7 +710,7 @@ img {
 }
 
 body.light-mode {
-    /* Base styles are already light mode via :root */
+    /* :root variables now define the dark theme as default */
     background-color: var(--background-color);
     color: var(--text-color);
 }
@@ -716,11 +727,11 @@ body a:focus {
 
 /* Dark mode overrides */
 body.dark-mode {
-    --background-color: var(--dark-color);
-    --text-color: var(--text-light);
-    --link-color: var(--primary-color);
-    --link-hover-color: var(--primary-hover-color);
-    --navbar-background: rgba(18, 18, 18, 0.92);
+    /* These variables are now the default in :root. 
+       If body.dark-mode is to be different, these would need distinct values.
+       For now, it will inherit the new dark defaults. */
+    /* --background-color: var(--dark-color); */
+    /* --text-color: var(--text-light); */
     --navbar-text-color: var(--text-light);
     --footer-background: var(--dark-grey);
     --footer-text-color: var(--text-muted-light);
@@ -774,7 +785,7 @@ body.dark-mode .timeline .timeline-heading .subheading {
     width: 2px;
     margin-left: -1.5px;
     content: "";
-    background-color: #e9ecef; /* Light grey line */
+    background-color: var(--border-color-default); /* Dark theme line */
 }
 
 /* Each timeline item */
@@ -804,8 +815,8 @@ body.dark-mode .timeline .timeline-heading .subheading {
     height: 80px;
     margin-left: -40px; /* Center the image on the line */
     text-align: center;
-    color: white;
-    border: 7px solid #e9ecef; /* Match line color */
+    color: var(--white-color);
+    border: 7px solid var(--border-color-default); /* Dark theme border */
     border-radius: 100%;
     background-color: var(--primary-color); /* Default icon background */
     display: flex;
@@ -829,10 +840,10 @@ body.dark-mode .timeline .timeline-heading .subheading {
     width: calc(100% - 90px); /* Width relative to image/line */
     margin-left: 90px; /* Push panel right of image */
     padding: 20px;
-    text-align: left;
-    border: 1px solid #e9ecef; /* Light border */
+    text-align: left;    
+    border: 1px solid var(--border-color-default); /* Dark theme border */
     border-radius: 8px;
-    background-color: var(--white-color);
+    background-color: var(--card-background-color); /* Dark theme panel */
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
 }
 
@@ -880,7 +891,7 @@ body.dark-mode .timeline .timeline-heading .subheading {
     right: auto;
     display: inline-block;
     border-top: 15px solid transparent;
-    border-right: 15px solid #e9ecef; /* Arrow border */
+    border-right: 15px solid var(--border-color-default); /* Arrow border */
     border-left: 0 solid #e9ecef;
     border-bottom: 15px solid transparent;
     content: " ";
@@ -892,7 +903,7 @@ body.dark-mode .timeline .timeline-heading .subheading {
     right: auto;
     display: inline-block;
     border-top: 14px solid transparent;
-    border-right: 14px solid var(--white-color); /* Arrow fill (match panel bg) */
+    border-right: 14px solid var(--card-background-color); /* Arrow fill */
     border-left: 0 solid var(--white-color);
     border-bottom: 14px solid transparent;
     content: " ";
@@ -927,12 +938,14 @@ body.dark-mode .timeline .timeline-heading .subheading {
     .timeline>li:not(.timeline-inverted) .timeline-panel::before {
         left: -15px;
         right: auto;
-        border-right-width: 15px; border-left-width: 0;
+        border-right-width: 15px; border-left-width: 0;        
+        border-right-color: var(--border-color-default);
     }
     .timeline>li:not(.timeline-inverted) .timeline-panel::after {
         left: -14px;
         right: auto;
-        border-right-width: 14px; border-left-width: 0;
+        border-right-width: 14px; border-left-width: 0;        
+        border-right-color: var(--card-background-color);
     }
 
     /* Inverted (Left Panel, points right) */
@@ -940,11 +953,13 @@ body.dark-mode .timeline .timeline-heading .subheading {
         right: -15px;
         left: auto;
         border-left-width: 15px; border-right-width: 0;
+        border-left-color: var(--border-color-default);
     }
     .timeline>li.timeline-inverted .timeline-panel::after {
         right: -14px;
         left: auto;
         border-left-width: 14px; border-right-width: 0;
+        border-left-color: var(--card-background-color);
     }
 }
 
@@ -974,25 +989,27 @@ body.dark-mode .timeline .timeline-heading .subheading {
 
 /* Dark Mode Adjustments for Timeline */
 body.dark-mode .timeline:before {
-    background-color: var(--medium-grey); /* Darker line */
+    background-color: var(--border-color-default); 
 }
 body.dark-mode .timeline>li .timeline-panel {
-    background-color: var(--dark-grey);
-    border-color: var(--medium-grey);
+    background-color: var(--card-background-color);
+    border-color: var(--border-color-default);
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
 }
 body.dark-mode .timeline>li .timeline-image {
-    border-color: var(--medium-grey);
+    border-color: var(--border-color-default);
     /* Icon background (primary/secondary) and text color should be handled by general rules */
 }
 /* Dark mode arrows */
 body.dark-mode .timeline>li .timeline-panel::before {
-    border-left-color: var(--medium-grey); /* For inverted pointing right */
-    border-right-color: var(--medium-grey); /* For normal pointing left */
+    /* border-left-color: var(--border-color-default); For inverted pointing right */
+    /* border-right-color: var(--border-color-default); For normal pointing left */
+    /* These are now covered by the main timeline arrow styles if :root is dark */
 }
 body.dark-mode .timeline>li .timeline-panel::after {
-    border-left-color: var(--dark-grey); /* Arrow fill for inverted */
-    border-right-color: var(--dark-grey); /* Arrow fill for normal */
+    /* border-left-color: var(--card-background-color); Arrow fill for inverted */
+    /* border-right-color: var(--card-background-color); Arrow fill for normal */
+    /* These are now covered by the main timeline arrow styles if :root is dark */
 }
 
 /*--------------------------------------------------------------
@@ -1026,7 +1043,7 @@ body.dark-mode .timeline>li .timeline-panel::after {
     position: relative;
     overflow: hidden;
     z-index: 1;
-    background: var(--white-color);
+    background: var(--card-background-color); /* Dark theme card */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 0.375rem;
     perspective: 1000px;
@@ -1203,33 +1220,33 @@ body.dark-mode .timeline>li .timeline-panel::after {
 # Contact Page (Keep refined styles from previous revision)
 --------------------------------------------------------------*/
 #contact-form-section .form-control {
-    background-color: #fff;
-    border: 1px solid #ced4da;
+    background-color: var(--input-background-color);
+    border: 1px solid var(--input-border-color);
     padding: 1.1rem 1rem;
     font-size: 0.9rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     border-radius: 0.375rem;
+    color: var(--input-text-color);
 }
 
 #contact-form-section .form-control:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 0.25rem rgba(0, 245, 212, 0.25);
-    background-color: #fff;
-    color: var(--text-dark);
+    background-color: var(--input-background-color);
+    color: var(--input-text-color);
 }
 
 #contact-form-section .form-floating>label {
     padding: 1.1rem 1rem;
-    color: var(--text-muted-dark);
+    color: var(--input-placeholder-color);
     font-size: 0.9rem;
 }
 
 #contact-form-section .form-floating>.form-control:focus~label,
 #contact-form-section .form-floating>.form-control:not(:placeholder-shown):not(:focus)~label {
-    /* Added :not(:focus) */
     opacity: 0.65;
     transform: scale(0.85) translateY(-0.6rem) translateX(0.15rem);
-    background-color: #fff;
+    background-color: var(--input-background-color); /* Match input bg for cutout */
     padding: 0 0.4em;
     height: auto;
 }
@@ -1253,12 +1270,12 @@ body.dark-mode .timeline>li .timeline-panel::after {
 }
 
 #contact-info .contact-info-box a {
-    color: var(--text-dark);
+    color: var(--text-color); /* Use default text color */
     word-break: break-word;
 }
 
 #contact-info .contact-info-box a:hover {
-    color: var(--primary-color);
+    color: var(--link-hover-color);
 }
 
 /*--------------------------------------------------------------
