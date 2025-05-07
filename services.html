@@ -17,6 +17,18 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS - Main stylesheet for site styles -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        .service-item-detailed {
+            /* Smooth transition for hover effects */
+            transition: transform .3s ease-in-out, box-shadow .3s ease-in-out;
+        }
+        .service-item-detailed:hover {
+            transform: translateY(-5px); /* This makes the card "come forward" a bit */
+            /* Green shadow, using a color similar to Bootstrap's success green */
+            /* The RGBA value (40, 167, 69) corresponds to #28a745 */
+            box-shadow: 0 0.5rem 1rem rgba(40, 167, 69, 0.3) !important; 
+        }
+    </style>
 </head>
 <body>
     <!-- Preloader -->
