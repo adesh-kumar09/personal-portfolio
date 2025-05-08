@@ -18,7 +18,7 @@
     /* Standard Light Background */
     --text-light: #e8eaed;
     /* Slightly adjusted light text */
-    --text-muted-light: rgba(232, 234, 237, 0.75);
+    --text-muted-light: var(--text-light); /* Changed to match main light text color */
     /* Muted light text */
     /* --text-dark: #212529; */ /* No longer the primary dark text */
     /* Standard Dark Text */
@@ -41,7 +41,7 @@
     --input-background-color: var(--dark-grey);    /* Default for form inputs */
     --input-text-color: var(--text-light);
     --input-border-color: var(--medium-grey);
-    --input-placeholder-color: var(--text-muted-light);
+    --input-placeholder-color: rgba(232, 234, 237, 0.82); /* Explicitly set placeholder to a muted value */
     --light-grey-replacement: var(--dark-grey); /* For elements that were .bg-light */
 }
 
@@ -226,7 +226,7 @@ img {
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
-    color: var(--dark-color);
+    color: var(--medium-grey); /* Changed from --dark-color */
 }
 
 .btn-primary:hover,
@@ -234,7 +234,7 @@ img {
 .btn-primary:active {
     background-color: var(--primary-hover-color);
     border-color: var(--primary-hover-color);
-    color: var(--dark-color);
+    color: var(--medium-grey); /* Changed from --dark-color */
     box-shadow: 0 8px 20px rgba(0, 245, 212, 0.5);
     transform: translateZ(10px) scale(1.05);
 }
@@ -246,7 +246,7 @@ img {
 
 .btn-outline-light:hover {
     background-color: var(--white-color);
-    color: var(--dark-color);
+    color: var(--medium-grey); /* Changed from --dark-color */
     transform: translateZ(10px) scale(1.05);
 }
 
@@ -274,7 +274,7 @@ img {
 .btn-outline-primary:hover,
 .btn-outline-primary.active {
     background-color: var(--primary-color);
-    color: var(--dark-color);
+    color: var(--medium-grey); /* Changed from --dark-color */
     transform: translateZ(10px) scale(1.05);
 }
 
@@ -655,7 +655,7 @@ img {
     border-radius: 0;
     /* Remove radius for better text fit */
     transition: width 1s ease-in-out;
-    color: var(--dark-color);
+    color: var(--medium-grey); /* Changed from --dark-color */
     /* Dark text for contrast on light bars */
     text-shadow: none;
     font-weight: 600;
@@ -829,7 +829,7 @@ body.dark-mode .timeline .timeline-heading .subheading {
     font-size: 10px; /* Text inside the last circle */
     line-height: 14px;
     margin-top: 0;
-    color: var(--dark-color);
+    color: var(--medium-grey); /* Changed from --dark-color */
     font-weight: bold;
 }
 
@@ -1304,7 +1304,7 @@ body.dark-mode .timeline>li .timeline-panel::after {
 
 .footer .btn-social:hover {
     background-color: var(--primary-color);
-    color: var(--dark-color);
+    color: var(--medium-grey); /* Changed from --dark-color */
     transform: translateY(-3px);
 }
 
@@ -1361,7 +1361,9 @@ body.dark-mode .timeline>li .timeline-panel::after {
     .hero-section-home h2 {
         font-size: 1.5rem;
     }
+    
 }
+
 
 /* Medium devices (tablets, 768px and up) */
 @media (max-width: 991.98px) {
@@ -1476,7 +1478,7 @@ body.dark-mode .timeline>li .timeline-panel::after {
 
 #darkModeToggle:hover {
     background-color: var(--primary-color);
-    color: var(--dark-color);
+    color: var(--medium-grey); /* Changed for the icon's inherited color */
 }
 
 /* Responsive adjustments for dark mode toggle */
