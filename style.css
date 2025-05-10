@@ -1501,3 +1501,43 @@ body.dark-mode .timeline .timeline-heading .subheading {
         padding: 1rem 1rem;
     }
 }
+
+/*--------------------------------------------------------------
+# Back to Top Button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 20px;
+  bottom: 40px;
+  z-index: 996;
+  background: var(--primary-color);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  transition: all 0.4s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.back-to-top i {
+  font-size: 22px;
+  color: var(--medium-grey);
+  line-height: 0;
+}
+
+.back-to-top:hover {
+  background: var(--primary-hover-color);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 4px 10px rgba(var(--primary-color-rgb), 0.3);
+}
+.back-to-top:hover i {
+ color: var(--medium-grey);
+}
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}

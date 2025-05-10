@@ -198,4 +198,28 @@ $(function() { // Document Ready
         });
     }
 
+    // --- Back to Top Button ---
+    const backToTopButton = document.querySelector('.back-to-top');
+
+    if (backToTopButton) {
+        const toggleBackToTop = () => {
+            if (window.scrollY > 200) { // Show button after scrolling 200px
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        };
+
+        window.addEventListener('load', toggleBackToTop); // Check on page load
+        document.addEventListener('scroll', toggleBackToTop); // Check on scroll
+
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
  }); // End of $(function()
