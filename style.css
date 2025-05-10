@@ -6,6 +6,7 @@
 :root {
     --primary-color: #00f5d4;
     /* Vibrant Teal Accent */
+    --primary-color-rgb: 0, 245, 212; /* RGB version for rgba() */
     --secondary-color: #9b5de5;
     /* Optional Secondary Accent (Purple) */
     --dark-color: #121212;
@@ -18,7 +19,7 @@
     /* Standard Light Background */
     --text-light: #e8eaed;
     /* Slightly adjusted light text */
-    --text-muted-light: var(--text-light); /* Changed to match main light text color */
+    --text-muted-light: rgba(232, 234, 237, 0.85) ; /* Changed to match main light text color */
     /* Muted light text */
     /* --text-dark: #212529; */ /* No longer the primary dark text */
     /* Standard Dark Text */
@@ -47,6 +48,7 @@
 
 html {
     scroll-behavior: smooth;
+      overflow-x: hidden;
 }
 
 body {
@@ -77,11 +79,13 @@ h6 {
 h4.service-heading {
     font-size: 1.25rem;
     font-weight: 600;
+    color: var(--primary-color); /* Theme color for service card headings */
 }
 
 p {
     font-weight: 300;
     margin-bottom: 1rem;
+    color: var(--text-light); /* Ensure paragraphs use light text color */
 }
 
 p.lead {
@@ -115,6 +119,7 @@ img {
     font-weight: 700;
     margin-bottom: 1rem;
     text-transform: uppercase;
+    color: var(--primary-color); /* Make section headings use the theme's primary accent color */
 }
 
 .section-subheading {
@@ -130,7 +135,10 @@ img {
 .bg-dark .text-muted,
 .bg-dark-grey .text-muted,
 .footer .text-muted,
-.portfolio-modal .text-muted {
+.portfolio-modal .text-muted,
+/* Explicitly target .text-muted on default dark body background */
+body .text-muted, 
+body p.text-muted { /* More specific for paragraphs with text-muted */
     color: var(--text-muted-light) !important;
 }
 
@@ -463,6 +471,12 @@ img {
     border: 5px solid rgba(0, 245, 212, 0.3);
 }
 
+/* style.css mein add karein */
+.navbar-brand img.logo {
+    height: 35px; /* Adjust as needed */
+    width: auto;
+}
+
 .hero-section-home .highlight {
     color: var(--primary-color);
     font-weight: 600;
@@ -567,19 +581,19 @@ img {
 
 /* Specific Backgrounds (Keep as is or update URLs) */
 .about-header {
-    background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920');
+    background-image: url('https://i.pinimg.com/736x/4a/93/a6/4a93a6b8e9515b7c6f616ce4808f6bc6.jpg');
 }
 
 .portfolio-header {
-    background-image: url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920');
+    background-image: url('https://i.pinimg.com/736x/dd/3a/5f/dd3a5f9cb9ecbe638d22eed4b186453c.jpg');
 }
 
 .services-header {
-    background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920');
+    background-image: url('https://i.pinimg.com/736x/a4/0f/84/a40f84bec57544bd47150ba26c240283.jpg');
 }
 
 .contact-header {
-    background-image: url('https://images.unsplash.com/photo-1587560699334-cc4ff634909a?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920');
+    background-image: url('https://i.pinimg.com/736x/d1/35/56/d13556ec053cffc2410a682ee33436d6.jpg');
 }
 
 /*--------------------------------------------------------------
@@ -614,6 +628,7 @@ img {
 .portfolio-item-teaser .card-title {
     margin-bottom: 0.5rem;
     font-size: 1.15rem;
+    color: var(--primary-color); /* Theme color for portfolio teaser titles */
 }
 
 .portfolio-item-teaser .card-text {
@@ -636,6 +651,18 @@ img {
     opacity: 0.08;
     z-index: 1;
 }
+
+/* Custom hover for Discover My Services button on Home page */
+#home-services .btn-discover-services:hover,
+#home-services .btn-discover-services:focus,
+#home-services .btn-discover-services:active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--medium-grey); /* Text color for good contrast on primary color background */
+    box-shadow: 0 8px 20px rgba(var(--primary-color-rgb), 0.35); /* Theme-colored shadow */
+    /* transform: translateZ(10px) scale(1.05); */ /* This transform is already applied by .btn-dark:hover */
+}
+
 
 /*--------------------------------------------------------------
 # About Page Specific Sections (REVISED - Skills Text)
@@ -855,7 +882,7 @@ body.dark-mode .timeline .timeline-heading .subheading {
 /* Panel heading styles */
 .timeline .timeline-heading h4 {
     margin-top: 0;
-    color: inherit;
+    color: var(--primary-color); /* Theme color for timeline panel headings */
     font-weight: 700;
     font-size: 1.1rem;
 }
@@ -863,7 +890,8 @@ body.dark-mode .timeline .timeline-heading .subheading {
     font-size: 0.9rem;
     font-weight: 400;
     text-transform: none;
-    color: var(--text-muted-dark);
+    /* Ensure this uses the light muted color for dark theme */
+    color: var(--text-muted-light); 
 }
 
 /* Panel body styles */
@@ -1081,7 +1109,7 @@ body.dark-mode .timeline>li .timeline-panel::after {
 
 .portfolio-wrap .portfolio-info h4 {
     font-size: 0.9rem; /* Even smaller title */
-    color: var(--white-color);
+    color: var(--primary-color); /* Theme color for portfolio grid item titles */
     font-weight: 600;
     margin-bottom: 1px; /* Further reduced margin */
 }
@@ -1141,6 +1169,7 @@ body.dark-mode .timeline>li .timeline-panel::after {
 
 .portfolio-modal h5 {
     font-size: 1.6rem;
+    color: var(--primary-color); /* Theme color for modal titles */
 }
 
 .portfolio-modal h6 {
@@ -1187,20 +1216,29 @@ body.dark-mode .timeline>li .timeline-panel::after {
 }
 
 /*--------------------------------------------------------------
-# Services Page (Keep refined styles from previous revision)
+# Services Page Specific Styles (Refined Cards)
 --------------------------------------------------------------*/
 .service-item-detailed {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--dark-grey);
+    /* Override Bootstrap's default border color for these specific cards */
+    --bs-border-color: rgba(255, 255, 255, 0.08); /* Very faint light border for definition */
+    /* Using a slightly more diffused shadow for a softer look */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    /* `border-radius` will be handled by Bootstrap's `.rounded` class (0.375rem) */
+    /* `padding` is handled by Bootstrap's `.p-4` class */
+    /* `height` is handled by Bootstrap's `.h-100` class */
 }
 
 .service-item-detailed:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+    transform: translateY(-6px);
+    --bs-border-color: rgba(var(--primary-color-rgb), 0.6); /* Theme color border on hover */
+    box-shadow: 0 5px 20px rgba(var(--primary-color-rgb), 0.2); /* Theme color shadow */
 }
 
 .service-item-detailed .icon i {
+    /* `text-primary` class in HTML already sets the color to var(--primary-color) */
     transition: transform 0.3s ease;
-    font-size: 2rem;
 }
 
 .service-item-detailed:hover .icon i {
@@ -1279,45 +1317,74 @@ body.dark-mode .timeline>li .timeline-panel::after {
 }
 
 /*--------------------------------------------------------------
-# Footer (Keep refined styles from previous revision)
+# Footer (New Professional Design)
 --------------------------------------------------------------*/
-.footer {
+.site-footer {
     background-color: var(--dark-color);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid var(--medium-grey); /* Slightly more visible border */
     color: var(--text-muted-light);
-    padding: 2.5rem 0;
-}
-
-.footer .btn-social {
-    width: 40px;
-    height: 40px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    border-radius: 100%;
-    background-color: var(--medium-grey);
-    color: var(--text-light);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    padding: 4rem 0 2.5rem 0; /* Adjusted padding */
     font-size: 0.9rem;
 }
 
-.footer .btn-social:hover {
-    background-color: var(--primary-color);
-    color: var(--medium-grey); /* Changed from --dark-color */
+.site-footer .footer-brand h3 {
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.site-footer .footer-brand p {
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.site-footer .footer-social .social-icon {
+    color: var(--text-muted-light);
+    font-size: 1.25rem; /* Larger icons */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Consistent size */
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid transparent; /* For hover effect */
+    transition: color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.site-footer .footer-social .social-icon:hover {
+    color: var(--primary-color);
     transform: translateY(-3px);
+    border-color: var(--primary-color); /* Optional: border on hover */
 }
 
-.footer a.link-light {
-    color: var(--text-muted-light) !important;
+.site-footer .footer-nav {
+    margin-top: 1rem;
+}
+
+.site-footer .footer-nav .footer-link {
+    color: var(--text-muted-light);
     transition: color 0.3s ease;
+    font-size: 0.85rem;
+    text-decoration: none;
 }
 
-.footer a.link-light:hover {
-    color: var(--white-color) !important;
+.site-footer .footer-nav .footer-link:hover {
+    color: var(--primary-color) !important; /* Hover to primary color */
 }
 
-.footer .small {
+.site-footer .footer-nav .footer-link-divider {
+    color: var(--medium-grey);
+    margin: 0 0.5rem;
+}
+
+.site-footer .footer-bottom {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--medium-grey);
+}
+
+.site-footer .footer-bottom .small {
     font-size: 0.85rem;
 }
 
@@ -1515,7 +1582,7 @@ body.dark-mode .timeline>li .timeline-panel::after {
     }
 
     .hero-section-home h2 {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     .hero-section-home .profile-picture {

@@ -18,7 +18,7 @@
     <!-- Custom CSS - Main stylesheet for site styles -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="page-home">
 
     <!-- Preloader (Keep as is) -->
     <div id="preloader"><div class="loader"></div></div>
@@ -26,8 +26,10 @@
     <!-- Navigation (REMOVED mainNav-scrolled class - dark bg is now default) -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="index.html">[Your Name]</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+           <a class="navbar-brand" href="index.html">
+            <img src="Image/logo removed bg.png" alt="Adesh Logo" style="height: 60px; width: auto;"> 
+            </a>
+            <button class="navbar-toggler" type="button " data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -111,7 +113,7 @@
                     </div>
                 </div>
                  <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
-                     <a href="services.html" class="btn btn-dark btn-lg">Discover My Services</a>
+                     <a href="services.html" class="btn btn-dark btn-lg btn-discover-services">Discover My Services</a>
                  </div>
             </div>
         </section>
@@ -163,7 +165,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> <!-- End row .g-4 -->
                  <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
                      <a href="portfolio.html" class="btn btn-primary btn-lg">See Full Portfolio</a>
                  </div>
@@ -186,15 +188,37 @@
     </main>
 
     <!-- Footer (Keep as is) -->
-    <footer class="footer bg-dark py-5">
+    <footer class="site-footer">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-4 text-lg-start text-center text-white mb-3 mb-lg-0 small">Copyright &copy; <span id="currentYear"></span> - [Your Name]</div>
-                <div class="col-lg-4 my-3 my-lg-0 text-center">
-                    <a class="btn btn-dark btn-social mx-2" href="[Your LinkedIn URL]" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="[Your GitHub URL]" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <div class="footer-brand">
+                        <h3>[Your Name]</h3>
+                        <p>Frontend Developer & Web Designer</p>
+                    </div>
                 </div>
-                <div class="col-lg-4 text-lg-end text-center text-white-50 small">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 text-md-center">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <div class="footer-social">
+                        <a href="[Your LinkedIn URL]" class="social-icon me-2" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="[Your GitHub URL]" class="social-icon me-2" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="[Your Instagram URL]" class="social-icon me-2" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <!-- Add other social links if needed -->
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 text-center"> 
+                     <h5 class="text-white mb-3 text-center">Quick Links</h5>
+                    <div class="footer-nav">
+                        <a href="portfolio.html" class="footer-link">View Portfolio</a> <span class="footer-link-divider">|</span>
+                        <a href="services.html" class="footer-link">My Services</a> <span class="footer-link-divider">|</span>
+                        <a href="contact.html" class="footer-link">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row footer-bottom mt-4 pt-4">
+                <div class="col text-center text-white-50 small">
+                    Copyright &copy; <span id="currentYear"></span> - [Your Name]. All Rights Reserved.
+                    <span class="mx-2">|</span>
                     <a href="#!" class="link-light text-decoration-none me-3">Privacy Policy</a>
                     <a href="#!" class="link-light text-decoration-none">Terms of Use</a>
                 </div>
@@ -211,3 +235,4 @@
 
 </body>
 </html>
+ 
