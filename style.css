@@ -15,14 +15,9 @@
     /* Slightly Lighter Dark */
     --medium-grey: #333;
     --primary-hover-color: #00c4a8; /* Slightly darker teal for hover */
-    /* --light-grey: #f8f9fa; */ /* No longer the primary light background */
-    /* Standard Light Background */
     --text-light: #e8eaed;
     /* Slightly adjusted light text */
-    --text-muted-light: rgba(232, 234, 237, 0.85) ; /* Changed to match main light text color */
-    /* Muted light text */
-    /* --text-dark: #212529; */ /* No longer the primary dark text */
-    /* Standard Dark Text */
+    --text-muted-light: rgba(232, 234, 237, 0.85) ; /* Muted light text */
     --text-muted-dark: #6c757d;
     /* Standard Muted Dark Text */
     --white-color: #ffffff;
@@ -53,15 +48,13 @@ html {
 
 body {
     font-family: var(--font-family-base);
-    color: var(--text-color); /* Updated to default text color */
-    background-color: var(--background-color); /* Updated to default background */
+    color: var(--text-color);
+    background-color: var(--background-color);
     overflow-x: hidden;
     padding-top: var(--navbar-height);
-    /* Adjust based on initial navbar height */
     line-height: 1.7;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
-    /* Smoother fonts */
     -moz-osx-font-smoothing: grayscale;
 }
 
@@ -71,21 +64,21 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: 700;    
-    color: var(--text-color); /* Updated to default text color */
+    font-weight: 700;
+    color: var(--text-color);
     line-height: 1.3;
 }
 
 h4.service-heading {
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--primary-color); /* Theme color for service card headings */
+    color: var(--primary-color);
 }
 
 p {
     font-weight: 300;
     margin-bottom: 1rem;
-    color: var(--text-light); /* Ensure paragraphs use light text color */
+    color: var(--text-light);
 }
 
 p.lead {
@@ -119,7 +112,7 @@ img {
     font-weight: 700;
     margin-bottom: 1rem;
     text-transform: uppercase;
-    color: var(--primary-color); /* Make section headings use the theme's primary accent color */
+    color: var(--primary-color);
 }
 
 .section-subheading {
@@ -136,9 +129,8 @@ img {
 .bg-dark-grey .text-muted,
 .footer .text-muted,
 .portfolio-modal .text-muted,
-/* Explicitly target .text-muted on default dark body background */
-body .text-muted, 
-body p.text-muted { /* More specific for paragraphs with text-muted */
+body .text-muted,
+body p.text-muted {
     color: var(--text-muted-light) !important;
 }
 
@@ -170,7 +162,6 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
     color: var(--white-color) !important;
 }
 
-/* Use white for max contrast */
 .text-white-75 {
     color: var(--text-muted-light) !important;
 }
@@ -200,7 +191,7 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
 }
 
 .bg-light {
-    background-color: var(--light-grey-replacement) !important; /* Updated for dark theme */
+    background-color: var(--light-grey-replacement) !important;
 }
 
 /* Buttons */
@@ -234,7 +225,7 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
-    color: var(--medium-grey); /* Changed from --dark-color */
+    color: var(--medium-grey);
 }
 
 .btn-primary:hover,
@@ -242,7 +233,7 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
 .btn-primary:active {
     background-color: var(--primary-hover-color);
     border-color: var(--primary-hover-color);
-    color: var(--medium-grey); /* Changed from --dark-color */
+    color: var(--medium-grey);
     box-shadow: 0 8px 20px rgba(0, 245, 212, 0.5);
     transform: translateZ(10px) scale(1.05);
 }
@@ -254,7 +245,7 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
 
 .btn-outline-light:hover {
     background-color: var(--white-color);
-    color: var(--medium-grey); /* Changed from --dark-color */
+    color: var(--medium-grey);
     transform: translateZ(10px) scale(1.05);
 }
 
@@ -282,12 +273,12 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
 .btn-outline-primary:hover,
 .btn-outline-primary.active {
     background-color: var(--primary-color);
-    color: var(--medium-grey); /* Changed from --dark-color */
+    color: var(--medium-grey);
     transform: translateZ(10px) scale(1.05);
 }
 
 /*--------------------------------------------------------------
-# Preloader (Keep as is)
+# Preloader
 --------------------------------------------------------------*/
 #preloader {
     position: fixed;
@@ -323,20 +314,15 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
 }
 
 /*--------------------------------------------------------------
-# Navigation (REVISED - Always Dark Background)
+# Navigation
 --------------------------------------------------------------*/
 #mainNav {
-    /* Apply dark background by default */
     background-color: rgba(18, 18, 18, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-    /* Subtle shadow */
-
     transition: padding-top 0.4s ease, padding-bottom 0.4s ease;
-    /* Only transition padding */
     padding-top: 1rem;
-    /* Initial padding */
     padding-bottom: 1rem;
     border-bottom: none;
 }
@@ -347,6 +333,14 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
     font-size: 1.5rem;
     transition: font-size 0.4s ease;
 }
+
+/* Style for the logo image in navbar */
+.navbar-brand img.logo {
+    height: 35px; /* Adjust as needed */
+    width: auto;
+    /* You can add more styles like margin if needed */
+}
+
 
 #mainNav .navbar-nav .nav-item .nav-link {
     color: rgba(232, 234, 237, 0.8);
@@ -376,18 +370,19 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
     background-color: var(--primary-color);
 }
 
-/* Navbar shrink effect (Only padding/height changes now) */
 #mainNav.navbar-shrink {
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
-    /* Background properties are now default, no change needed here */
 }
 
 #mainNav.navbar-shrink .navbar-brand {
-    font-size: 1.35rem;
+    font-size: 1.35rem; /* This might affect text if logo is used, consider adjusting or removing if logo size is fixed */
+}
+#mainNav.navbar-shrink .navbar-brand img.logo {
+    height: 30px; /* Example: slightly smaller logo on shrink */
 }
 
-/* Navbar Toggler */
+
 .navbar-toggler {
     border-color: rgba(255, 255, 255, 0.1);
     padding: 0.5rem 0.75rem;
@@ -397,10 +392,7 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28232, 234, 237, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-/* Collapsed Menu */
 @media (max-width: 991.98px) {
-
-    /* #mainNav background is already dark */
     #mainNav .navbar-collapse {
         background-color: rgba(18, 18, 18, 0.98);
         border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -425,14 +417,13 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
 }
 
 /*--------------------------------------------------------------
-# Hero Section (Home Page - REVISED)
+# Hero Section (Home Page)
 --------------------------------------------------------------*/
 .hero-section-home {
     position: relative;
     padding-top: calc(var(--navbar-height) + 4rem);
     padding-bottom: 4rem;
     min-height: 100vh;
-    /* Lighter gradient overlay to make background image more visible */
     background: linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.6)), url("assets/img/hero-bg.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -468,13 +459,7 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
     width: 160px;
     height: 160px;
     object-fit: cover;
-    border: 5px solid rgba(0, 245, 212, 0.3);
-}
-
-/* style.css mein add karein */
-.navbar-brand img.logo {
-    height: 35px; /* Adjust as needed */
-    width: auto;
+    border: 5px solid var(--primary-color); /* Changed to full primary color */
 }
 
 .hero-section-home .highlight {
@@ -494,23 +479,19 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
     0% {
         opacity: 1;
     }
-
     50% {
         opacity: 0;
     }
-
     100% {
         opacity: 1;
     }
 }
 
-/* REMOVED .hero-overlay for home, as gradient is now part of background */
 .hero-section-home .container {
     position: relative;
     z-index: 1;
 }
 
-/* Scroll Down Indicator */
 .scroll-down-indicator {
     position: absolute;
     bottom: 30px;
@@ -532,26 +513,19 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
 }
 
 @keyframes bounce {
-
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
+    0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
     }
-
     40% {
         transform: translateY(-10px);
     }
-
     60% {
         transform: translateY(-5px);
     }
 }
 
 /*--------------------------------------------------------------
-# Page Headers (REVISED - Stronger Overlay)
+# Page Headers
 --------------------------------------------------------------*/
 .page-header {
     position: relative;
@@ -567,19 +541,16 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
     z-index: 1;
 }
 
-/* Stronger overlay for sub-pages */
 .page-header .header-overlay {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    /* Lighter gradient to make background image more visible */
     background: linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.6));
     z-index: 0;
 }
 
-/* Specific Backgrounds (Keep as is or update URLs) */
 .about-header {
     background-image: url('https://i.pinimg.com/736x/4a/93/a6/4a93a6b8e9515b7c6f616ce4808f6bc6.jpg');
 }
@@ -597,7 +568,7 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
 }
 
 /*--------------------------------------------------------------
-# Home Page Specific Sections (Refined)
+# Home Page Specific Sections
 --------------------------------------------------------------*/
 #home-services .fa-stack {
     transition: transform 0.3s ease;
@@ -628,7 +599,7 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
 .portfolio-item-teaser .card-title {
     margin-bottom: 0.5rem;
     font-size: 1.15rem;
-    color: var(--primary-color); /* Theme color for portfolio teaser titles */
+    color: var(--primary-color);
 }
 
 .portfolio-item-teaser .card-text {
@@ -652,52 +623,42 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
     z-index: 1;
 }
 
-/* Custom hover for Discover My Services button on Home page */
 #home-services .btn-discover-services:hover,
 #home-services .btn-discover-services:focus,
 #home-services .btn-discover-services:active {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
-    color: var(--medium-grey); /* Text color for good contrast on primary color background */
-    box-shadow: 0 8px 20px rgba(var(--primary-color-rgb), 0.35); /* Theme-colored shadow */
-    /* transform: translateZ(10px) scale(1.05); */ /* This transform is already applied by .btn-dark:hover */
+    color: var(--medium-grey);
+    box-shadow: 0 8px 20px rgba(var(--primary-color-rgb), 0.35);
 }
 
 
 /*--------------------------------------------------------------
-# About Page Specific Sections (REVISED - Skills Text)
+# About Page Specific Sections
 --------------------------------------------------------------*/
 #skills .progress {
     height: 20px;
-    /* Make bar slightly taller to fit text */
-    border-radius: 5px;    
-    background-color: var(--medium-grey); /* Darker track for dark theme */
+    border-radius: 5px;
+    background-color: var(--medium-grey);
     font-size: 0.8rem;
-    /* Control text size */
     overflow: hidden;
-    /* Ensure text stays inside */
 }
 
 #skills .progress-bar {
     border-radius: 0;
-    /* Remove radius for better text fit */
     transition: width 1s ease-in-out;
-    color: var(--medium-grey); /* Changed from --dark-color */
-    /* Dark text for contrast on light bars */
+    color: var(--medium-grey);
     text-shadow: none;
     font-weight: 600;
     display: flex;
-    /* Center text */
     align-items: center;
     justify-content: center;
     overflow: hidden;
     white-space: nowrap;
 }
 
-/* Optional: Different text color for secondary bars if needed */
 #skills .progress-bar.bg-secondary {
     color: var(--white-color);
-    /* Light text for dark purple bar */
 }
 
 #skills .skill-item {
@@ -714,7 +675,7 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
 }
 
 /*--------------------------------------------------------------
-# Navbar Button Hover (Green Accent)
+# Navbar Button Hover
 --------------------------------------------------------------*/
 #mainNav .navbar-nav .nav-item .nav-link:hover,
 #mainNav .navbar-nav .nav-item .nav-link:focus {
@@ -722,27 +683,34 @@ body p.text-muted { /* More specific for paragraphs with text-muted */
 }
 
 /*--------------------------------------------------------------
-# Dark and Light Mode Variables and Styles
+# Dark and Light Mode Variables and Styles (Setup for potential future use)
 --------------------------------------------------------------*/
 :root {
-    /* Light mode colors */
-    /* --background-color: var(--white-color); */ /* Now defined above for dark default */
-    /* --text-color: var(--text-dark); */ /* Now defined above for dark default */
-    --link-color: var(--primary-color); /* Remains the same */
-    --link-hover-color: var(--primary-hover-color); /* Remains the same */
-    --navbar-background: rgba(18, 18, 18, 0.92);
-    --navbar-text-color: var(--white-color);
-    --footer-background: var(--dark-color);
-    --footer-text-color: var(--text-muted-light);
+    --link-color: var(--primary-color);
+    --link-hover-color: var(--primary-hover-color);
+    --navbar-background: rgba(18, 18, 18, 0.92); /* Default dark navbar */
+    --navbar-text-color: var(--white-color); /* Default dark navbar text */
+    --footer-background: var(--dark-color); /* Default dark footer */
+    --footer-text-color: var(--text-muted-light); /* Default dark footer text */
 }
 
+/* Light mode specific overrides (if a light mode is ever implemented) */
 body.light-mode {
-    /* :root variables now define the dark theme as default */
-    background-color: var(--background-color);
-    color: var(--text-color);
+    /* Example:
+    --background-color: var(--white-color);
+    --text-color: var(--text-muted-dark);
+    --card-background-color: var(--white-color);
+    --border-color-default: #dee2e6;
+    --input-background-color: var(--white-color);
+    --input-text-color: var(--text-muted-dark);
+    --input-border-color: #ced4da;
+    --input-placeholder-color: #6c757d;
+    --light-grey-replacement: #f8f9fa;
+    */
+    background-color: var(--background-color); /* This would use light mode variable */
+    color: var(--text-color); /* This would use light mode variable */
 }
 
-/* Apply general link colors based on mode */
 body a {
     color: var(--link-color);
 }
@@ -751,29 +719,21 @@ body a:focus {
     color: var(--link-hover-color);
 }
 
-
-/* Dark mode overrides */
+/* Dark mode is default, but explicit class can be used for overrides if needed */
 body.dark-mode {
-    /* These variables are now the default in :root. 
-       If body.dark-mode is to be different, these would need distinct values.
-       For now, it will inherit the new dark defaults. */
-    /* --background-color: var(--dark-color); */
-    /* --text-color: var(--text-light); */
-    --navbar-text-color: var(--text-light);
-    --footer-background: var(--dark-grey);
-    --footer-text-color: var(--text-muted-light);
-    background-color: var(--background-color);
-    color: var(--text-color);
+    /* Current setup uses dark theme by default via :root variables.
+       This class can be used if specific overrides for dark-mode are needed
+       that differ from the :root defaults. */
+    background-color: var(--background-color); /* Inherits dark default */
+    color: var(--text-color); /* Inherits dark default */
 }
 
-/* Dark mode specific overrides */
-
 body.dark-mode #mainNav {
-    background-color: var(--navbar-background);
+    background-color: var(--navbar-background); /* Uses dark navbar var */
 }
 
 body.dark-mode #mainNav .navbar-nav .nav-link {
-    color: var(--navbar-text-color);
+    color: var(--navbar-text-color); /* Uses dark navbar text var */
 }
 
 body.dark-mode #mainNav .navbar-nav .nav-link:hover,
@@ -782,20 +742,19 @@ body.dark-mode #mainNav .navbar-nav .nav-link:focus {
 }
 
 body.dark-mode .footer {
-    background-color: var(--footer-background);
-    color: var(--footer-text-color);
+    background-color: var(--footer-background); /* Uses dark footer var */
+    color: var(--footer-text-color); /* Uses dark footer text var */
 }
 
-/* Adjust components for dark mode */
 body.dark-mode #skills .progress {
-    background-color: var(--medium-grey); /* Darker track */
+    background-color: var(--medium-grey);
 }
 body.dark-mode .timeline .timeline-heading .subheading {
     color: var(--text-muted-light);
 }
 
 /*--------------------------------------------------------------
-# Timeline Section (REVISED - Mobile First & Responsive)
+# Timeline Section
 --------------------------------------------------------------*/
 .timeline {
     position: relative;
@@ -803,26 +762,23 @@ body.dark-mode .timeline .timeline-heading .subheading {
     list-style: none;
 }
 
-/* The vertical line - Positioned left on mobile */
 .timeline:before {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 40px; /* Position for mobile */
+    left: 40px;
     width: 2px;
     margin-left: -1.5px;
     content: "";
-    background-color: var(--border-color-default); /* Dark theme line */
+    background-color: var(--border-color-default);
 }
 
-/* Each timeline item */
 .timeline>li {
     position: relative;
-    min-height: 50px; /* Ensure space even for small content */
+    min-height: 50px;
     margin-bottom: 50px;
 }
 
-/* Clearfix */
 .timeline>li:after,
 .timeline>li:before {
     display: table;
@@ -832,57 +788,52 @@ body.dark-mode .timeline .timeline-heading .subheading {
     clear: both;
 }
 
-/* The circle icon/image on the timeline */
 .timeline>li .timeline-image {
     position: absolute;
     z-index: 100;
-    left: 40px; /* Align with the line */
+    left: 40px;
     top: 0;
-    width: 80px; /* Mobile size */
+    width: 80px;
     height: 80px;
-    margin-left: -40px; /* Center the image on the line */
+    margin-left: -40px;
     text-align: center;
     color: var(--white-color);
-    border: 7px solid var(--border-color-default); /* Dark theme border */
+    border: 7px solid var(--border-color-default);
     border-radius: 100%;
-    background-color: var(--primary-color); /* Default icon background */
+    background-color: var(--primary-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem; /* Icon size */
+    font-size: 1.5rem;
 }
 
 .timeline>li .timeline-image h4 {
-    font-size: 10px; /* Text inside the last circle */
+    font-size: 10px;
     line-height: 14px;
     margin-top: 0;
-    color: var(--medium-grey); /* Changed from --dark-color */
+    color: var(--medium-grey);
     font-weight: bold;
 }
 
-/* The content panel - Positioned to the right on mobile */
 .timeline>li .timeline-panel {
     position: relative;
-    /* Use margin instead of float for simpler stacking */
-    width: calc(100% - 90px); /* Width relative to image/line */
-    margin-left: 90px; /* Push panel right of image */
+    width: calc(100% - 90px);
+    margin-left: 90px;
     padding: 20px;
-    text-align: left;    
-    border: 1px solid var(--border-color-default); /* Dark theme border */
+    text-align: left;
+    border: 1px solid var(--border-color-default);
     border-radius: 8px;
-    background-color: var(--card-background-color); /* Dark theme panel */
+    background-color: var(--card-background-color);
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* Remove bottom margin from the very last item */
 .timeline>li:last-child {
     margin-bottom: 0;
 }
 
-/* Panel heading styles */
 .timeline .timeline-heading h4 {
     margin-top: 0;
-    color: var(--primary-color); /* Theme color for timeline panel headings */
+    color: var(--primary-color);
     font-weight: 700;
     font-size: 1.1rem;
 }
@@ -890,18 +841,15 @@ body.dark-mode .timeline .timeline-heading .subheading {
     font-size: 0.9rem;
     font-weight: 400;
     text-transform: none;
-    /* Ensure this uses the light muted color for dark theme */
-    color: var(--text-muted-light); 
+    color: var(--text-muted-light);
 }
 
-/* Panel body styles */
 .timeline .timeline-body>ul,
 .timeline .timeline-body>p {
     margin-bottom: 0;
     font-size: 0.95rem;
 }
 
-/* Style for the last "call to action" circle */
 .timeline .timeline-image-last {
     background-color: var(--secondary-color);
 }
@@ -911,72 +859,66 @@ body.dark-mode .timeline .timeline-heading .subheading {
     line-height: 1.3;
 }
 
-/* Pointer Arrows (Mobile: All panels on right, arrows point left) */
 .timeline>li .timeline-panel::before {
     position: absolute;
     top: 26px;
-    left: -15px; /* Pointing left */
+    left: -15px;
     right: auto;
     display: inline-block;
     border-top: 15px solid transparent;
-    border-right: 15px solid var(--border-color-default); /* Arrow border */
-    border-left: 0 solid #e9ecef;
+    border-right: 15px solid var(--border-color-default);
+    border-left: 0 solid var(--border-color-default);
     border-bottom: 15px solid transparent;
     content: " ";
 }
 .timeline>li .timeline-panel::after {
     position: absolute;
     top: 27px;
-    left: -14px; /* Pointing left */
+    left: -14px;
     right: auto;
     display: inline-block;
     border-top: 14px solid transparent;
-    border-right: 14px solid var(--card-background-color); /* Arrow fill */
-    border-left: 0 solid var(--white-color);
+    border-right: 14px solid var(--card-background-color);
+    border-left: 0 solid var(--card-background-color);
     border-bottom: 14px solid transparent;
     content: " ";
 }
 
-/* --- Desktop Timeline Styles (Alternating) --- */
-@media (min-width: 768px) { /* Apply from tablet size up */
+@media (min-width: 768px) {
     .timeline:before {
-        left: 50%; /* Center the line */
+        left: 50%;
     }
 
     .timeline>li .timeline-panel {
-        width: 41%; /* Adjust width for side-by-side */
-        float: left; /* Float left by default */
-        margin-left: 0; /* Reset mobile margin */
+        width: 41%;
+        float: left;
+        margin-left: 0;
     }
 
     .timeline>li .timeline-image {
-        left: 50%; /* Center image on the line */
-        width: 100px; /* Slightly larger image */
+        left: 50%;
+        width: 100px;
         height: 100px;
-        margin-left: -50px; /* Adjust margin to center */
+        margin-left: -50px;
     }
 
-    /* Right-aligned panels (default items) */
     .timeline>li:not(.timeline-inverted) .timeline-panel {
-         float: right; /* Override float left */
+         float: right;
     }
 
-    /* --- Pointer Arrows for Desktop --- */
-    /* Default (Right Panel, points left) */
     .timeline>li:not(.timeline-inverted) .timeline-panel::before {
         left: -15px;
         right: auto;
-        border-right-width: 15px; border-left-width: 0;        
+        border-right-width: 15px; border-left-width: 0;
         border-right-color: var(--border-color-default);
     }
     .timeline>li:not(.timeline-inverted) .timeline-panel::after {
         left: -14px;
         right: auto;
-        border-right-width: 14px; border-left-width: 0;        
+        border-right-width: 14px; border-left-width: 0;
         border-right-color: var(--card-background-color);
     }
 
-    /* Inverted (Left Panel, points right) */
     .timeline>li.timeline-inverted .timeline-panel::before {
         right: -15px;
         left: auto;
@@ -991,57 +933,29 @@ body.dark-mode .timeline .timeline-heading .subheading {
     }
 }
 
-/* Further adjustments for larger screens */
 @media (min-width: 992px) {
      .timeline>li .timeline-panel {
-        width: 43%; /* More space */
+        width: 43%;
         padding: 25px;
     }
      .timeline>li .timeline-image {
-        width: 120px; /* Even larger image */
+        width: 120px;
         height: 120px;
-        margin-left: -60px; /* Adjust margin */
+        margin-left: -60px;
         font-size: 1.8rem;
     }
-    /* Adjust arrow position if image size changes significantly */
     .timeline>li .timeline-panel::before,
     .timeline>li .timeline-panel::after {
-        top: 35px; /* Adjust vertical position */
+        top: 35px;
     }
-    /* Optional: Make arrows slightly larger */
      .timeline>li:not(.timeline-inverted) .timeline-panel::before { border-top-width: 20px; border-right-width: 20px; border-bottom-width: 20px; left: -20px; }
      .timeline>li:not(.timeline-inverted) .timeline-panel::after { border-top-width: 19px; border-right-width: 19px; border-bottom-width: 19px; left: -19px; }
      .timeline>li.timeline-inverted .timeline-panel::before { border-top-width: 20px; border-left-width: 20px; border-bottom-width: 20px; right: -20px; }
      .timeline>li.timeline-inverted .timeline-panel::after { border-top-width: 19px; border-left-width: 19px; border-bottom-width: 19px; right: -19px; }
 }
 
-/* Dark Mode Adjustments for Timeline */
-body.dark-mode .timeline:before {
-    background-color: var(--border-color-default); 
-}
-body.dark-mode .timeline>li .timeline-panel {
-    background-color: var(--card-background-color);
-    border-color: var(--border-color-default);
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
-}
-body.dark-mode .timeline>li .timeline-image {
-    border-color: var(--border-color-default);
-    /* Icon background (primary/secondary) and text color should be handled by general rules */
-}
-/* Dark mode arrows */
-body.dark-mode .timeline>li .timeline-panel::before {
-    /* border-left-color: var(--border-color-default); For inverted pointing right */
-    /* border-right-color: var(--border-color-default); For normal pointing left */
-    /* These are now covered by the main timeline arrow styles if :root is dark */
-}
-body.dark-mode .timeline>li .timeline-panel::after {
-    /* border-left-color: var(--card-background-color); Arrow fill for inverted */
-    /* border-right-color: var(--card-background-color); Arrow fill for normal */
-    /* These are now covered by the main timeline arrow styles if :root is dark */
-}
-
 /*--------------------------------------------------------------
-# Portfolio Page (Keep refined styles from previous revision)
+# Portfolio Page
 --------------------------------------------------------------*/
 #portfolio-grid .filter-button {
     transition: all 0.3s ease;
@@ -1071,7 +985,7 @@ body.dark-mode .timeline>li .timeline-panel::after {
     position: relative;
     overflow: hidden;
     z-index: 1;
-    background: var(--card-background-color); /* Dark theme card */
+    background: var(--card-background-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 0.375rem;
     perspective: 1000px;
@@ -1090,8 +1004,8 @@ body.dark-mode .timeline>li .timeline-panel::after {
 
 .portfolio-wrap img {
     transition: transform 0.4s ease;
-    aspect-ratio: 16 / 10; /* Force landscape aspect ratio (adjust 16/10 as needed) */
-    object-fit: cover; /* Ensure image covers the area without distortion */
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
 }
 
 .portfolio-wrap .portfolio-info {
@@ -1103,21 +1017,21 @@ body.dark-mode .timeline>li .timeline-panel::after {
     z-index: 3;
     transition: all 0.35s ease-in-out;
     background: rgba(18, 18, 18, 0.9);
-    padding: 6px 15px; /* Further reduced vertical padding */
+    padding: 6px 15px;
     text-align: center;
 }
 
 .portfolio-wrap .portfolio-info h4 {
-    font-size: 0.9rem; /* Even smaller title */
-    color: var(--primary-color); /* Theme color for portfolio grid item titles */
+    font-size: 0.9rem;
+    color: var(--primary-color);
     font-weight: 600;
-    margin-bottom: 1px; /* Further reduced margin */
+    margin-bottom: 1px;
 }
 
 .portfolio-wrap .portfolio-info p {
     color: var(--text-muted-light);
     font-size: 0.8rem;
-    margin-bottom: 3px; /* Further reduced margin */
+    margin-bottom: 3px;
 }
 
 .portfolio-wrap .portfolio-links {
@@ -1127,11 +1041,11 @@ body.dark-mode .timeline>li .timeline-panel::after {
 .portfolio-wrap .portfolio-links a {
     color: var(--white-color);
     margin: 0 4px;
-    font-size: 1rem; /* Slightly smaller icons */
+    font-size: 1rem;
     display: inline-block;
     transition: 0.3s;
     line-height: 1;
-    padding: 5px; /* Slightly smaller padding */
+    padding: 5px;
     border-radius: 50%;
     background-color: rgba(0, 245, 212, 0.15);
 }
@@ -1149,7 +1063,6 @@ body.dark-mode .timeline>li .timeline-panel::after {
     opacity: 1;
 }
 
-/* Portfolio Modal */
 .portfolio-modal .modal-dialog {
     max-width: 900px;
 }
@@ -1169,7 +1082,7 @@ body.dark-mode .timeline>li .timeline-panel::after {
 
 .portfolio-modal h5 {
     font-size: 1.6rem;
-    color: var(--primary-color); /* Theme color for modal titles */
+    color: var(--primary-color);
 }
 
 .portfolio-modal h6 {
@@ -1177,13 +1090,10 @@ body.dark-mode .timeline>li .timeline-panel::after {
     font-weight: 600;
 }
 
-/* Style for subheadings in modal */
 .portfolio-modal p,
 .portfolio-modal ul {
     font-size: 0.95rem;
 }
-
-/* Adjust text size in modal */
 .portfolio-modal p.lead {
     font-size: 1.05rem;
     font-weight: 300;
@@ -1204,8 +1114,6 @@ body.dark-mode .timeline>li .timeline-panel::after {
     font-size: 0.75rem;
     padding: 0.4em 0.6em;
 }
-
-/* Adjust badge size */
 .portfolio-modal .btn-close-white {
     filter: invert(1) grayscale(100%) brightness(200%);
     opacity: 0.8;
@@ -1216,28 +1124,22 @@ body.dark-mode .timeline>li .timeline-panel::after {
 }
 
 /*--------------------------------------------------------------
-# Services Page Specific Styles (Refined Cards)
+# Services Page Specific Styles
 --------------------------------------------------------------*/
 .service-item-detailed {
     background-color: var(--dark-grey);
-    /* Override Bootstrap's default border color for these specific cards */
-    --bs-border-color: rgba(255, 255, 255, 0.08); /* Very faint light border for definition */
-    /* Using a slightly more diffused shadow for a softer look */
+    --bs-border-color: rgba(255, 255, 255, 0.08);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
-    /* `border-radius` will be handled by Bootstrap's `.rounded` class (0.375rem) */
-    /* `padding` is handled by Bootstrap's `.p-4` class */
-    /* `height` is handled by Bootstrap's `.h-100` class */
 }
 
 .service-item-detailed:hover {
     transform: translateY(-6px);
-    --bs-border-color: rgba(var(--primary-color-rgb), 0.6); /* Theme color border on hover */
-    box-shadow: 0 5px 20px rgba(var(--primary-color-rgb), 0.2); /* Theme color shadow */
+    --bs-border-color: rgba(var(--primary-color-rgb), 0.6);
+    box-shadow: 0 5px 20px rgba(var(--primary-color-rgb), 0.2);
 }
 
 .service-item-detailed .icon i {
-    /* `text-primary` class in HTML already sets the color to var(--primary-color) */
     transition: transform 0.3s ease;
 }
 
@@ -1255,24 +1157,36 @@ body.dark-mode .timeline>li .timeline-panel::after {
 }
 
 /*--------------------------------------------------------------
-# Contact Page (Keep refined styles from previous revision)
+# Contact Page
 --------------------------------------------------------------*/
 #contact-form-section .form-control {
     background-color: var(--input-background-color);
     border: 1px solid var(--input-border-color);
     padding: 1.1rem 1rem;
     font-size: 0.9rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.15s ease-in-out, color 0.15s ease-in-out;
     border-radius: 0.375rem;
     color: var(--input-text-color);
 }
 
 #contact-form-section .form-control:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.25rem rgba(0, 245, 212, 0.25);
-    background-color: var(--input-background-color);
-    color: var(--input-text-color);
+    box-shadow: 0 0 0 0.25rem rgba(var(--primary-color-rgb), 0.25);
+    background-color: var(--input-background-color) !important;
+    color: var(--input-text-color) !important;
 }
+
+#contact-form-section .form-control:-webkit-autofill,
+#contact-form-section .form-control:-webkit-autofill:hover,
+#contact-form-section .form-control:-webkit-autofill:focus,
+#contact-form-section .form-control:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--input-background-color) inset !important;
+    -webkit-text-fill-color: var(--input-text-color) !important;
+    caret-color: var(--input-text-color) !important;
+    border-color: var(--input-border-color) !important;
+    background-color: var(--input-background-color) !important;
+}
+
 
 #contact-form-section .form-floating>label {
     padding: 1.1rem 1rem;
@@ -1282,19 +1196,30 @@ body.dark-mode .timeline>li .timeline-panel::after {
 
 #contact-form-section .form-floating>.form-control:focus~label,
 #contact-form-section .form-floating>.form-control:not(:placeholder-shown):not(:focus)~label {
-    opacity: 0.65;
+    color: var(--input-placeholder-color);
     transform: scale(0.85) translateY(-0.6rem) translateX(0.15rem);
-    background-color: var(--input-background-color); /* Match input bg for cutout */
+    background-color: var(--input-background-color); /* This is for the label's own background */
     padding: 0 0.4em;
     height: auto;
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important; /* Ensure label itself has no borders that could cause a line */
+    text-decoration: none !important;
 }
+
+/* Style the ::after pseudo-element for the "cutout" background */
+#contact-form-section .form-floating > .form-control:focus ~ label::after,
+#contact-form-section .form-floating > .form-control:not(:placeholder-shown) ~ label::after {
+  background-color: var(--input-background-color) !important; /* Crucial for dark theme cutout */
+  border-radius: var(--bs-border-radius); /* Match Bootstrap's border radius for the cutout area */
+}
+
 
 #contact-form-section .invalid-feedback {
     font-size: 0.8rem;
     margin-top: 0.25rem;
 }
 
-/* Style invalid inputs */
 #contact-form-section .form-control.is-invalid {
     border-color: #dc3545;
 }
@@ -1308,7 +1233,7 @@ body.dark-mode .timeline>li .timeline-panel::after {
 }
 
 #contact-info .contact-info-box a {
-    color: var(--text-color); /* Use default text color */
+    color: var(--text-color);
     word-break: break-word;
 }
 
@@ -1317,13 +1242,13 @@ body.dark-mode .timeline>li .timeline-panel::after {
 }
 
 /*--------------------------------------------------------------
-# Footer (New Professional Design)
+# Footer
 --------------------------------------------------------------*/
 .site-footer {
     background-color: var(--dark-color);
-    border-top: 1px solid var(--medium-grey); /* Slightly more visible border */
+    border-top: 1px solid var(--medium-grey);
     color: var(--text-muted-light);
-    padding: 4rem 0 2.5rem 0; /* Adjusted padding */
+    padding: 4rem 0 2.5rem 0;
     font-size: 0.9rem;
 }
 
@@ -1341,21 +1266,21 @@ body.dark-mode .timeline>li .timeline-panel::after {
 
 .site-footer .footer-social .social-icon {
     color: var(--text-muted-light);
-    font-size: 1.25rem; /* Larger icons */
+    font-size: 1.25rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px; /* Consistent size */
+    width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 1px solid transparent; /* For hover effect */
+    border: 1px solid transparent;
     transition: color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
 }
 
 .site-footer .footer-social .social-icon:hover {
     color: var(--primary-color);
     transform: translateY(-3px);
-    border-color: var(--primary-color); /* Optional: border on hover */
+    border-color: var(--primary-color);
 }
 
 .site-footer .footer-nav {
@@ -1370,7 +1295,7 @@ body.dark-mode .timeline>li .timeline-panel::after {
 }
 
 .site-footer .footer-nav .footer-link:hover {
-    color: var(--primary-color) !important; /* Hover to primary color */
+    color: var(--primary-color) !important;
 }
 
 .site-footer .footer-nav .footer-link-divider {
@@ -1389,92 +1314,70 @@ body.dark-mode .timeline>li .timeline-panel::after {
 }
 
 /*--------------------------------------------------------------
-# Responsive Adjustments (Keep refined styles from previous revision)
+# Responsive Adjustments
 --------------------------------------------------------------*/
-/* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     body {
         padding-top: var(--navbar-height);
     }
-
-    /* Ensure correct padding */
     .page-section {
         padding: 6rem 0;
     }
-
     .section-heading {
         font-size: 2.5rem;
     }
-
     .section-subheading {
         font-size: 1.1rem;
         margin-bottom: 4rem;
     }
-
     .hero-section-home {
         padding-top: calc(var(--navbar-height) + 6rem);
         padding-bottom: 6rem;
     }
-
     .hero-section-home .profile-picture {
         width: 180px;
         height: 180px;
     }
-
     .hero-section-home h1 {
         font-size: 3.5rem;
     }
-
     .hero-section-home h2 {
         font-size: 1.5rem;
     }
-    
 }
 
-
-/* Medium devices (tablets, 768px and up) */
 @media (max-width: 991.98px) {
     body {
         padding-top: var(--navbar-height-shrink);
     }
-
-    /* Adjust for shrunk navbar */
     .hero-section-home h1 {
         font-size: 2.8rem;
     }
-
     .hero-section-home h2 {
         font-size: 1.3rem;
     }
-
     .page-header {
         padding: 6rem 0 4rem 0;
     }
-
     .page-header h1 {
         font-size: 2.5rem;
     }
 }
 
-/* Small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {
     body {
         font-size: 15px;
     }
-
     .page-section {
         padding: 3.5rem 0;
     }
-
     .section-heading {
         font-size: 1.9rem;
     }
-
     .section-subheading {
         font-size: 1rem;
         margin-bottom: 2.5rem;
     }
-
     .hero-section-home {
         padding-top: calc(var(--navbar-height-shrink) + 3rem);
         padding-bottom: 3rem;
@@ -1482,51 +1385,37 @@ body.dark-mode .timeline>li .timeline-panel::after {
         background-attachment: scroll;
         min-height: auto;
     }
-
     .hero-section-home .profile-picture {
         width: 140px;
         height: 140px;
     }
-
     .hero-section-home h1 {
         font-size: 2.2rem;
     }
-
     .hero-section-home h2 {
         font-size: 1.1rem;
     }
-
     .hero-section-home p.lead {
         font-size: 1.05rem;
         margin-bottom: 2rem;
     }
-
     .btn-xl {
         padding: 1rem 1.8rem;
         font-size: 0.9rem;
     }
-
     .page-header {
         padding: 5rem 0 3rem 0;
     }
-
     .page-header h1 {
         font-size: 2.1rem;
     }
-
-    /* Timeline adjustments for smaller screens are now handled by base styles */
-
-    .footer {
-        text-align: center;
-    }
-
     .footer .text-lg-start,
     .footer .text-lg-end {
         text-align: center !important;
     }
 }
 
-/* Dark Mode Toggle Button Styles */
+/* Dark Mode Toggle Button Styles (Kept for potential future use) */
 #darkModeToggle {
     width: 38px;
     height: 38px;
@@ -1537,59 +1426,52 @@ body.dark-mode .timeline>li .timeline-panel::after {
     justify-content: center;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 #darkModeToggle i {
     font-size: 1.2rem;
     color: var(--white-color);
 }
-
 #darkModeToggle:hover {
     background-color: var(--primary-color);
-    color: var(--medium-grey); /* Changed for the icon's inherited color */
+}
+#darkModeToggle:hover i { /* Ensure icon color changes on hover if button bg changes */
+    color: var(--medium-grey);
 }
 
-/* Responsive adjustments for dark mode toggle */
 @media (max-width: 575.98px) {
     #darkModeToggle {
         width: 32px;
         height: 32px;
+    }
+    #darkModeToggle i {
         font-size: 1rem;
     }
 }
 
-/* Extra small devices (portrait phones, less than 576px) */
+
 @media (max-width: 575.98px) {
     body {
         font-size: 14px;
     }
-
     .page-section {
         padding: 3rem 1rem;
     }
-
-    /* Add horizontal padding */
     .section-heading {
         font-size: 1.7rem;
     }
-
     .section-subheading {
         font-size: 0.95rem;
         margin-bottom: 2rem;
     }
-
     .hero-section-home h1 {
         font-size: 1.9rem;
     }
-
     .hero-section-home h2 {
         font-size: 1.1rem;
     }
-
     .hero-section-home .profile-picture {
         width: 120px;
         height: 120px;
     }
-
     .hero-section-home .btn {
         display: block;
         width: 90%;
@@ -1597,33 +1479,24 @@ body.dark-mode .timeline>li .timeline-panel::after {
         margin-left: auto;
         margin-right: auto;
     }
-
-    /* Stack buttons, limit width */
     .hero-section-home .btn+.btn {
         margin-top: 1rem;
     }
-
     .page-header {
         padding: 4rem 1rem 2.5rem 1rem;
     }
-
-    /* Add horizontal padding */
     .page-header h1 {
         font-size: 1.8rem;
     }
-
     .page-header p.lead {
         font-size: 0.95rem;
     }
-
     #home-services .col-md-4 {
         margin-bottom: 1.5rem;
     }
-
     #contact-info .col-md-4 {
         margin-bottom: 1.5rem;
     }
-
     .portfolio-modal .modal-body {
         padding: 1rem 1rem;
     }

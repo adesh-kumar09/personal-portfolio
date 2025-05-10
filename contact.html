@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - [Your Name] | Let's Collaborate</title> <!-- Refined Title -->
-    <meta name="description" content="Get in touch with [Your Name] to discuss your frontend development or web design project. Available for collaboration and new opportunities."> <!-- Refined Description -->
+    <title>Contact - [Your Name] | Let's Collaborate</title>
+    <meta name="description" content="Get in touch with [Your Name] to discuss your frontend development or web design project. Available for collaboration and new opportunities.">
 
-    <!-- Libraries and CSS (Keep includes the same) -->
+    <!-- Libraries and CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -17,11 +17,11 @@
     <!-- Preloader -->
     <div id="preloader"><div class="loader"></div></div>
 
-    <!-- Navigation (REMOVED mainNav-scrolled class) -->
+    <!-- Navigation -->
      <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
            <a class="navbar-brand" href="index.html">
-            <img src="Image/logo removed bg.png" alt="Adesh Logo" style="height: 60px; width: auto;"> 
+            <img src="Image/logo removed bg.png" alt="Adesh Logo" style="height: 60px; width: auto;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -36,19 +36,19 @@
         </div>
     </nav>
 
-     <!-- Page Header (Keep structure, ensure overlay is strong enough via CSS) -->
+     <!-- Page Header -->
      <header class="page-header contact-header text-center">
         <div class="container">
             <div class="page-header-content" data-aos="fade-in">
-                <h1 class="display-4 fw-bold text-primary">Get In Touch</h1> <!-- Refined heading -->
-                <p class="lead text-primary opacity-75">Ready to start a project or just want to connect? Send me a message!</p> <!-- Refined subheading -->
+                <h1 class="display-4 fw-bold text-primary">Get In Touch</h1>
+                <p class="lead text-primary opacity-75">Ready to start a project or just want to connect? Send me a message!</p>
             </div>
         </div>
-         <div class="header-overlay"></div> <!-- Overlay ensures text visibility -->
+         <div class="header-overlay"></div>
     </header>
 
     <main>
-        <!-- Contact Form Section (Keep structure, ensure Formspree endpoint is set) -->
+        <!-- Contact Form Section -->
         <section class="page-section" id="contact-form-section">
             <div class="container">
                 <div class="row gx-5 justify-content-center">
@@ -82,17 +82,17 @@
                             <!-- Message input-->
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" id="message" name="message" placeholder="Enter your message here..." style="height: 10rem" required></textarea>
-                                <label for="message">Your Message</label> <!-- Slightly better label -->
+                                <label for="message">Your Message</label>
                                 <div class="invalid-feedback">A message is required.</div>
                             </div>
-                            <!-- Submit success/error messages (Keep structure) -->
+                            <!-- Submit success/error messages -->
                             <div class="d-none" id="submitSuccessMessage">
                                 <div class="text-center mb-3 text-success">
-                                    <div class="fw-bolder">Message Sent Successfully!</div>
-                                    Thank you for reaching out. I'll be in touch soon.
+                                    <div class="fw-bolder">Message Submitted!</div>
+                                    This is a frontend demonstration. For actual inquiries, please use the contact methods below.
                                 </div>
                             </div>
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 fw-bold">Error sending message! Please try again.</div></div> <!-- Made error bold -->
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 fw-bold">Submission Note: This is a frontend demo. Please use an alternative contact method below.</div></div>
                             <!-- Submit Button-->
                             <div class="d-grid"><button class="btn btn-primary btn-xl" id="submitButton" type="submit">Send Message</button></div>
                         </form>
@@ -101,7 +101,7 @@
             </div>
         </section>
 
-        <!-- Contact Info Section (Keep structure, icons already adjusted) -->
+        <!-- Contact Info Section -->
         <section class="page-section bg-light" id="contact-info">
             <div class="container">
                 <div class="text-center mb-5" data-aos="fade-up">
@@ -114,7 +114,7 @@
                         <div class="contact-info-box p-3">
                             <i class="fas fa-envelope fa-2x mb-3 text-primary"></i>
                             <h5 class="fw-bold">Email</h5>
-                            <a href="adeshmakhija9@gmail.com" class="text-decoration-none d-block">your.email@example.com</a>
+                            <a href="mailto:adeshmakhija9@gmail.com" class="text-decoration-none d-block">adeshmakhija9@gmail.com</a>
                         </div>
                     </div>
                     <!-- LinkedIn -->
@@ -138,7 +138,7 @@
                         <div class="contact-info-box p-3">
                             <i class="fab fa-instagram fa-2x mb-3 text-primary"></i>
                             <h5 class="fw-bold">Instagram</h5>
-                            <a href="" target="_blank" class="text-decoration-none d-block">Follow Me</a>
+                            <a href="[Your Instagram URL]" target="_blank" class="text-decoration-none d-block">Follow Me</a>
                         </div>
                     </div>
                 </div>
@@ -147,27 +147,26 @@
 
     </main>
 
-    <!-- Footer (Keep as is) -->
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 text-center text-md-start">
                     <div class="footer-brand">
                         <h3>[Your Name]</h3>
                         <p>Frontend Developer & Web Designer</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 text-md-center">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 text-center text-md-center">
                     <h5 class="text-white mb-3">Connect</h5>
                     <div class="footer-social">
                         <a href="https://www.linkedin.com/in/adesh-makhija-a08a93361/" class="social-icon me-2" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://github.com/adesh-kumar09" class="social-icon me-2" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="[Your Instagram URL]" class="social-icon me-2" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <!-- Add other social links if needed -->
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 text-center">
-                     <h5 class="text-white mb-3 text-center">Quick Links</h5> 
+                     <h5 class="text-white mb-3 text-center">Quick Links</h5>
                     <div class="footer-nav">
                         <a href="portfolio.html" class="footer-link">View Portfolio</a> <span class="footer-link-divider">|</span>
                         <a href="services.html" class="footer-link">My Services</a> <span class="footer-link-divider">|</span>
@@ -186,7 +185,7 @@
         </div>
     </footer>
 
-    <!-- JS Libraries and app.js (Keep includes the same) -->
+    <!-- JS Libraries and app.js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
