@@ -11,9 +11,9 @@ $(function() { // Document Ready - jQuery wrapper
             // Thodi der baad display none kar dein taaki transition poora ho sake
             setTimeout(() => {
                 if (preloader) { // Check if preloader still exists
-                    preloader.style.display = 'none';
+                    preloader.style.display = 'none'; 
                 }
-            }, 600); // Yeh time aapke CSS transition duration se thoda zyada hona chahiye (0.5s + buffer)
+            }, 300); // CSS transition (0.5s) se pehle .loaded class lag jayegi, ye display none ke liye hai
 
             // Initialize AOS after preloader is handled and content is likely visible
             if (typeof AOS !== 'undefined') {
@@ -27,20 +27,20 @@ $(function() { // Document Ready - jQuery wrapper
             }
         });
 
-        // Failsafe: Agar 5 second tak preloader hide nahi hota, toh force hide kar dein
+        // Failsafe: Agar 1.5 second tak preloader hide nahi hota, toh force hide kar dein
         // Yeh mobile par 'load' event ki dikkaton mein madad kar sakta hai
         setTimeout(() => {
             if (preloader && preloader.style.display !== 'none' && !preloader.classList.contains('loaded')) {
                 console.warn('Preloader was force-hidden by timeout.');
                 preloader.classList.add('loaded');
                 setTimeout(() => {
-                    if (preloader) { // Check again
+                    if (preloader) { 
                         preloader.style.display = 'none';
                     }
-                }, 600); // Match transition time
+                }, 300); // Match display none timeout
 
                 // Initialize AOS if it was forced
-                if (typeof AOS !== 'undefined' && !document.body.classList.contains('aos-initialized')) {
+                if (typeof AOS !== 'undefined' && (!document.body.classList.contains('aos-initialized') || (typeof AOS.refreshHard === 'function' && AOS.refreshHard))) { // Check if AOS.refreshHard is a function before calling
                      AOS.init({
                         duration: 800,
                         easing: 'ease-in-out',
@@ -50,7 +50,7 @@ $(function() { // Document Ready - jQuery wrapper
                     });
                 }
             }
-        }, 5000); // 5 seconds
+        }, 1500); // 1.5 seconds failsafe
     } else {
         // Agar preloader nahi hai, toh AOS ko seedha initialize karein DOMContentLoaded par
         // (Waise aapke HTML mein preloader hai, toh yeh fallback hai)
