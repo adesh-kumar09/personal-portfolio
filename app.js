@@ -4,25 +4,21 @@ $(function() { // Document Ready - jQuery wrapper
     const preloader = document.getElementById('preloader');
 
     if (preloader) {
-        let preloaderHidden = false; // Flag to track if preloader has been handled
-
-        const hidePreloader = () => {
-            if (preloader && !preloaderHidden) {
-                preloader.classList.add('loaded');
-                setTimeout(() => {
-                    if (preloader) {
-                        preloader.style.display = 'none';
-                    }
-                }, 550); // CSS transition (0.5s) + thoda buffer
-                preloaderHidden = true;
-            }
-        };
-
-        // Try to hide preloader as soon as DOM is ready
+        // Jaise hi DOM ready ho, preloader ko hide karna shuru karein
         document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(hidePreloader, 250); // Chhota sa delay DOM ready hone ke baad
+            preloader.classList.add('loaded'); // CSS transition ke liye class add karein
 
-            // Initialize AOS when DOM is ready, but it will only animate when elements are in view
+            // Thodi der baad display none kar dein taaki transition poora ho sake
+            setTimeout(() => {
+                if (preloader) { // Check if preloader still exists
+                    preloader.style.display = 'none';
+                }
+            }, 550); // CSS transition (0.5s) + thoda buffer
+        });
+
+        // Jab page poora load ho jaaye (saare resources including images)
+        window.addEventListener('load', () => {
+            // Initialize AOS after preloader is handled and content is likely visible
             if (typeof AOS !== 'undefined') {
                 AOS.init({
                     duration: 800,
@@ -34,21 +30,25 @@ $(function() { // Document Ready - jQuery wrapper
             }
         });
 
-        // Additional failsafe: Agar 1 second ke baad bhi preloader nahi hata, toh force hide
+        // Failsafe: Agar 1.2 second tak preloader (DOM ready ke baad) hide nahi hota, toh force hide kar dein
+        // Yeh kisi unexpected JS error ya slow DOM parsing mein madad kar sakta hai
         setTimeout(() => {
-            hidePreloader(); // Call hidePreloader again as a failsafe
-            if (!preloaderHidden) { // Agar abhi bhi hide nahi hua
-                console.warn('Preloader was force-hidden by the final failsafe timeout.');
+            if (preloader && preloader.style.display !== 'none' && !preloader.classList.contains('loaded')) {
+                console.warn('Preloader was force-hidden by timeout.');
+                preloader.classList.add('loaded');
+                setTimeout(() => {
+                    if (preloader) {
+                        preloader.style.display = 'none';
+                    }
+                }, 550); // Match display none timeout
+
+                // Initialize AOS if it was forced
+                if (typeof AOS !== 'undefined' && (!document.body.classList.contains('aos-initialized') || (typeof AOS.refreshHard === 'function' && AOS.refreshHard))) { // Check if AOS.refreshHard is a function before calling
+                    // AOS ko window.onload mein hi initialize karna behtar hai, yahaan sirf failsafe preloader ke liye hai
+                    // Agar AOS yahaan initialize karna zaroori ho, toh conditions check karein
+                }
             }
-        }, 1000); // 1 second absolute failsafe
-
-        // window.onload ab sirf ek extra check ke liye use ho sakta hai, ya agar koi resource loading par depend karna ho
-        window.addEventListener('load', () => {
-            // Agar DOMContentLoaded ke baad bhi preloader nahi hata, toh yahaan ek aur baar try kar sakte hain
-            // Lekin upar wala logic pehle hi handle kar lega
-            // hidePreloader(); // Optional: can call again, but might be redundant
-        });
-
+        }, 1200); // 1.2 seconds failsafe after DOMContentLoaded logic should have run
     } else {
         // Agar preloader nahi hai, toh AOS ko seedha initialize karein DOMContentLoaded par
         // (Waise aapke HTML mein preloader hai, toh yeh fallback hai)
