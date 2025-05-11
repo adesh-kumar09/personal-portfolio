@@ -3,52 +3,69 @@ $(function() { // Document Ready - jQuery wrapper
     // --- Preloader ---
     const preloader = document.getElementById('preloader');
 
-    if (preloader) {
-        // Jaise hi DOM ready ho, preloader ko hide karna shuru karein
-        document.addEventListener('DOMContentLoaded', () => {
-            preloader.classList.add('loaded'); // CSS transition ke liye class add karein
 
-            // Thodi der baad display none kar dein taaki transition poora ho sake
-            setTimeout(() => {
-                if (preloader) { // Check if preloader still exists
-                    preloader.style.display = 'none';
+    if (preloader) {
+        let windowLoaded = false;
+        let preloaderHidden = false;
+
+        const hidePreloader = () => {
+            if (!preloaderHidden) { // Check if not already handled
+                if (preloader) {
+                    preloader.classList.remove('show'); // Ensure show class is removed if it was added
+                    preloader.classList.add('loaded'); // Start fade out
+                    setTimeout(() => {
+                        if (preloader) {
+                            preloader.style.display = 'none'; // Remove from layout after transition
+                        }
+                    }, 350); // Match CSS transition (0.3s) + buffer
                 }
-            }, 550); // CSS transition (0.5s) + thoda buffer
-        });
+                preloaderHidden = true; // Mark as handled
+
+                // Initialize AOS after preloader is visually gone
+                // Ensure AOS is initialized only once per page load effectively
+                if (typeof AOS !== 'undefined' && !document.body.classList.contains('aos-initialized')) {
+                    AOS.init({
+                        duration: 800,
+                        easing: 'ease-in-out',
+                        once: true,
+                        mirror: false,
+                        anchorPlacement: 'top-bottom'
+                    });
+                }
+            }
+        };
 
         // Jab page poora load ho jaaye (saare resources including images)
         window.addEventListener('load', () => {
-            // Initialize AOS after preloader is handled and content is likely visible
-            if (typeof AOS !== 'undefined') {
-                AOS.init({
-                    duration: 800,
-                    easing: 'ease-in-out',
-                    once: true,
-                    mirror: false,
-                    anchorPlacement: 'top-bottom'
-                });
-            }
+            windowLoaded = true; // Mark window as loaded
+            hidePreloader(); // Hide preloader now that everything is loaded
         });
 
-        // Failsafe: Agar 1.2 second tak preloader (DOM ready ke baad) hide nahi hota, toh force hide kar dein
-        // Yeh kisi unexpected JS error ya slow DOM parsing mein madad kar sakta hai
-        setTimeout(() => {
-            if (preloader && preloader.style.display !== 'none' && !preloader.classList.contains('loaded')) {
-                console.warn('Preloader was force-hidden by timeout.');
-                preloader.classList.add('loaded');
-                setTimeout(() => {
-                    if (preloader) {
-                        preloader.style.display = 'none';
-                    }
-                }, 550); // Match display none timeout
-
-                // Initialize AOS if it was forced
-                if (typeof AOS !== 'undefined' && (!document.body.classList.contains('aos-initialized') || (typeof AOS.refreshHard === 'function' && AOS.refreshHard))) { // Check if AOS.refreshHard is a function before calling
-                    // AOS ko window.onload mein hi initialize karna behtar hai, yahaan sirf failsafe preloader ke liye hai
-                    // Agar AOS yahaan initialize karna zaroori ho, toh conditions check karein
+        // Jaise hi DOM ready ho, check karein
+        document.addEventListener('DOMContentLoaded', () => {
+            // Chhota sa delay (e.g., 75ms). Agar is delay ke baad window.load abhi tak nahi hua,
+            // toh preloader dikhao (kyunki loading mein time lag raha hai).
+            setTimeout(() => {
+                if (!windowLoaded && preloader && !preloaderHidden) {
+                    // Agar window abhi load nahi hui aur preloader hide nahi hua, toh use dikhao
+                    preloader.classList.add('show');
+                    console.log("Preloader shown because window.load is pending.");
                 }
+                // Agar windowLoaded true hai, toh 'load' event listener ne hidePreloader call kar diya hoga
+                // ya kar dega, preloader 'show' class ke bina hidden hi rahega.
+            }, 75); // Chhota sa delay
+
+            // AOS ko yahaan bhi initialize kar sakte hain agar preloader jaldi hat gaya
+            // Lekin behtar hai ki window.onload ke baad hi ho jab sab content ready ho
+        });
+
+        // Failsafe: Agar 1.5 second tak preloader hide nahi hota
+        setTimeout(() => {
+            if (!preloaderHidden) {
+                console.warn('Preloader was force-hidden by failsafe timeout.');
+                hidePreloader();
             }
-        }, 1200); // 1.2 seconds failsafe after DOMContentLoaded logic should have run
+        }, 1500); // 1.5 seconds failsafe
     } else {
         // Agar preloader nahi hai, toh AOS ko seedha initialize karein DOMContentLoaded par
         // (Waise aapke HTML mein preloader hai, toh yeh fallback hai)

@@ -56,6 +56,12 @@ body {
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    opacity: 1; /* Start with page visible */
+    transition: opacity 0.4s ease-in-out; /* Default transition for page load/exit */
+}
+
+body.page-is-exiting {
+    opacity: 0; /* Fade out current page */
 }
 
 h1,
@@ -280,6 +286,8 @@ body p.text-muted {
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
+/* style.css (relevant preloader part) */
+/* c:\Users\dell\Desktop\Personal Portfolio\style.css (relevant preloader part) */
 #preloader {
     position: fixed;
     top: 0;
@@ -287,14 +295,23 @@ body p.text-muted {
     right: 0;
     bottom: 0;
     z-index: 9999;
-    /* overflow: hidden; */ /* Can be removed if not causing issues */
     background: var(--dark-color);
-    display: flex;
+    display: flex; /* Important for centering */
     align-items: center;
     justify-content: center;
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Initially hidden */
+    transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
+}
+
+#preloader.show { /* JS adds this for refresh/initial */
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.5s ease-out, visibility 0s linear 0.5s; /* Visibility transition for removal */
+}
+
+#preloader.loaded { /* JS adds this to hide */
+    opacity: 0;
+    visibility: hidden;
 }
 
 #preloader .loader {
@@ -304,18 +321,19 @@ body p.text-muted {
     width: 60px;
     height: 60px;
     animation: spin 1s linear infinite;
-    opacity: 1;
-    transition: opacity 0.3s ease-out; /* Loader fade out */
-}
-
-#preloader.loaded {
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1; /* Loader icon is visible when preloader.show is active */
+    transition: opacity 0.2s ease-out;
 }
 
 #preloader.loaded .loader {
-    opacity: 0; /* Fade out loader icon as well */
+    opacity: 0; /* Hide loader icon when preloader is hiding */
 }
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 
 @keyframes spin {
     0% {
@@ -1554,4 +1572,25 @@ body.dark-mode .timeline .timeline-heading .subheading {
 .back-to-top.active {
   visibility: visible;
   opacity: 1;
+}
+
+/* Page Transition Overlay (Optional - Example) */
+.page-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color); /* Or your brand color / white */
+  z-index: 9998; /* Below preloader, above content */
+  transform: translateX(-100%); /* Start off-screen */
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+body.page-is-exiting .page-transition-overlay {
+  transform: translateX(0%); /* Slide in */
+}
+
+body.page-loaded-transition .page-transition-overlay {
+  transform: translateX(100%); /* Slide out */
 }
