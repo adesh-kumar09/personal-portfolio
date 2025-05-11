@@ -179,7 +179,7 @@ $(function() { // Document Ready
                 // Simulate a "successful" frontend demo submission after a short delay
                 setTimeout(function() {
                     successMessage.html(`
-                        <div class="text-center mb-3 text-info"> {/* Changed to text-info for demo */}
+                        <div class="text-center mb-3 text-info">
                             <div class="fw-bolder">Message Submitted (Demo)!</div>
                             As a frontend developer, this form demonstrates client-side validation and submission handling.<br>
                             For actual inquiries, please use the contact methods listed below.
