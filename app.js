@@ -1,12 +1,43 @@
 $(function() { // Document Ready - jQuery wrapper
 
-    // --- Preloader ---
+    // --- Preloader Logic ---
     const preloader = document.getElementById('preloader');
-
-
     if (preloader) {
         let windowLoaded = false;
         let preloaderHidden = false;
+
+        // Check sessionStorage for navigation flag
+        const wasNavigatingInternally = sessionStorage.getItem('portfolioPageNavigated');
+
+        if (wasNavigatingInternally === 'true') {
+            sessionStorage.removeItem('portfolioPageNavigated'); // Clear the flag
+            // This is an internal navigation, ensure preloader is not shown
+            if (preloader) {
+                preloader.style.display = 'none'; // Force hide, no animation needed
+                console.log("Internal navigation: Preloader forced display:none.");
+            }
+            preloaderHidden = true; // Mark as handled to prevent other logic from showing it
+            
+            // For internal navigation, initialize/refresh AOS as soon as possible after DOM is ready
+            // Using a small timeout to ensure DOM has settled after navigation.
+            setTimeout(() => {
+                if (typeof AOS !== 'undefined') {
+                    if (!document.body.classList.contains('aos-initialized')) {
+                        AOS.init({
+                            duration: 600, // Faster animation for navigation
+                            easing: 'ease-out-quad', // Smooth easing
+                            once: true,
+                            mirror: false,
+                            anchorPlacement: 'top-bottom'
+                        });
+                        console.log("AOS initialized for internal navigation.");
+                    } else {
+                        AOS.refreshHard(); // If already initialized, refresh for new elements
+                        console.log("AOS refreshed for internal navigation.");
+                    }
+                }
+            }, 0); // Execute as soon as possible after current script block
+        }
 
         const hidePreloader = () => {
             if (!preloaderHidden) { // Check if not already handled
@@ -21,56 +52,80 @@ $(function() { // Document Ready - jQuery wrapper
                 }
                 preloaderHidden = true; // Mark as handled
 
-                // Initialize AOS after preloader is visually gone
-                // Ensure AOS is initialized only once per page load effectively
+                // Initialize AOS after preloader is visually gone (for refresh/initial load)
                 if (typeof AOS !== 'undefined' && !document.body.classList.contains('aos-initialized')) {
                     AOS.init({
-                        duration: 800,
+                        duration: 800, // Standard duration for refresh/initial
                         easing: 'ease-in-out',
                         once: true,
                         mirror: false,
                         anchorPlacement: 'top-bottom'
                     });
+                    console.log("AOS initialized after preloader (refresh/initial).");
                 }
             }
         };
 
-        // Jab page poora load ho jaaye (saare resources including images)
+        // This event listener is primarily for refresh/initial load
         window.addEventListener('load', () => {
-            windowLoaded = true; // Mark window as loaded
-            hidePreloader(); // Hide preloader now that everything is loaded
-        });
-
-        // Jaise hi DOM ready ho, check karein
-        document.addEventListener('DOMContentLoaded', () => {
-            // Chhota sa delay (e.g., 75ms). Agar is delay ke baad window.load abhi tak nahi hua,
-            // toh preloader dikhao (kyunki loading mein time lag raha hai).
-            setTimeout(() => {
-                if (!windowLoaded && preloader && !preloaderHidden) {
-                    // Agar window abhi load nahi hui aur preloader hide nahi hua, toh use dikhao
-                    preloader.classList.add('show');
-                    console.log("Preloader shown because window.load is pending.");
+            windowLoaded = true;
+            if (!wasNavigatingInternally) { // Only run hide logic if it's NOT internal navigation
+                hidePreloader();
+            } else {
+                // For internal navigation, AOS initialization is handled when 'wasNavigatingInternally' is true.
+                // We can mark preloader as hidden here as well if it wasn't already (though it should be).
+                if (!preloaderHidden && preloader && preloader.style.display !== 'none') {
+                     // This is a fallback, preloader should be display:none already
+                    preloader.style.opacity = '0';
+                    preloader.style.visibility = 'hidden';
+                    setTimeout(() => { if (preloader) preloader.style.display = 'none'; }, 0);
                 }
-                // Agar windowLoaded true hai, toh 'load' event listener ne hidePreloader call kar diya hoga
-                // ya kar dega, preloader 'show' class ke bina hidden hi rahega.
-            }, 75); // Chhota sa delay
-
-            // AOS ko yahaan bhi initialize kar sakte hain agar preloader jaldi hat gaya
-            // Lekin behtar hai ki window.onload ke baad hi ho jab sab content ready ho
+                preloaderHidden = true; // Ensure it's marked hidden
+            }
+            document.body.classList.add('page-loaded-no-transition'); // Class to signal page is ready
         });
 
-        // Failsafe: Agar 1.5 second tak preloader hide nahi hota
+        // This event listener is primarily for refresh/initial load
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!wasNavigatingInternally) { // Show preloader logic for refresh or initial/external load
+                setTimeout(() => {
+                    if (!windowLoaded && preloader && !preloaderHidden) {
+                        preloader.classList.add('show');
+                        console.log("Preloader shown (Refresh/Initial/External) because window.load is pending.");
+                    }
+                }, 75); // Small delay
+            } else {
+                // Preloader is already set to display:none if wasNavigatingInternally.
+                // AOS initialization is also handled in that block.
+                if (preloader) { // Redundant check, but safe
+                    preloader.style.display = 'none';
+                }
+            }
+        });
+
+        // Failsafe: For REFRESH or INITIAL LOAD - if preloader isn't hidden after 0.8s
         setTimeout(() => {
-            if (!preloaderHidden) {
-                console.warn('Preloader was force-hidden by failsafe timeout.');
+            if (!wasNavigatingInternally && !preloaderHidden) {
+                console.warn('Preloader (Refresh/Initial) was force-hidden by failsafe timeout.');
                 hidePreloader();
             }
-        }, 1500); // 1.5 seconds failsafe
-    } else {
-        // Agar preloader nahi hai, toh AOS ko seedha initialize karein DOMContentLoaded par
-        // (Waise aapke HTML mein preloader hai, toh yeh fallback hai)
+        }, 800); // 0.8 seconds failsafe
+
+        // Add event listeners to internal links to set the navigation flag
+        document.querySelectorAll('a').forEach(link => {
+            if (link.hostname === window.location.hostname &&
+                !link.getAttribute('href').startsWith('#') &&
+                (link.getAttribute('href').endsWith('.html') || !link.getAttribute('href').includes('.'))) {
+                link.addEventListener('click', (e) => {
+                    sessionStorage.setItem('portfolioPageNavigated', 'true');
+                    // document.body.classList.add('page-is-exiting'); // Optional: For CSS exit animation
+                });
+            }
+        });
+
+    } else { // Fallback if preloader element doesn't exist
         document.addEventListener('DOMContentLoaded', () => {
-            if (typeof AOS !== 'undefined') {
+            if (typeof AOS !== 'undefined' && !document.body.classList.contains('aos-initialized')) {
                 AOS.init({
                     duration: 800,
                     easing: 'ease-in-out',
@@ -172,7 +227,7 @@ $(function() { // Document Ready - jQuery wrapper
 
             portfolioItems.each(function() {
                 const $item = $(this);
-                const itemCategories = $item.attr('class').split(' ').filter(cls => cls.startsWith('filter-'));
+                // const itemCategories = $item.attr('class').split(' ').filter(cls => cls.startsWith('filter-')); // Not strictly needed for this logic
                 
                 let shouldShow = false;
                 if (filterValue === 'all') {
@@ -185,13 +240,11 @@ $(function() { // Document Ready - jQuery wrapper
                 }
 
                 if (shouldShow) {
-                    // $item.removeClass('hide').show(); // jQuery show
                     $item.removeClass('hide').css('display', 'block'); // Ensure it's block for layout
                     setTimeout(() => { // Timeout for CSS transition to take effect
                         $item.css({'opacity': '1', 'transform': 'scale(1)'});
                     }, 10); // Small delay
                 } else {
-                    // $item.addClass('hide').hide(); // jQuery hide
                     $item.css({'opacity': '0', 'transform': 'scale(0.9)'});
                     setTimeout(() => { // Delay hiding to allow animation
                         $item.addClass('hide');
