@@ -287,11 +287,14 @@ body p.text-muted {
     right: 0;
     bottom: 0;
     z-index: 9999;
-    overflow: hidden;
+    /* overflow: hidden; */ /* Can be removed if not causing issues */
     background: var(--dark-color);
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-out, visibility 0s linear 0.5s; /* Visibility transition for removal */
 }
 
 #preloader .loader {
@@ -301,6 +304,17 @@ body p.text-muted {
     width: 60px;
     height: 60px;
     animation: spin 1s linear infinite;
+    opacity: 1;
+    transition: opacity 0.3s ease-out; /* Loader fade out */
+}
+
+#preloader.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#preloader.loaded .loader {
+    opacity: 0; /* Fade out loader icon as well */
 }
 
 @keyframes spin {
