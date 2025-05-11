@@ -4,53 +4,51 @@ $(function() { // Document Ready - jQuery wrapper
     const preloader = document.getElementById('preloader');
 
     if (preloader) {
-        // Jab page poora load ho jaaye (saare resources including images)
-        window.addEventListener('load', () => {
-            preloader.classList.add('loaded'); // CSS transition ke liye class add karein
-            
-            // Thodi der baad display none kar dein taaki transition poora ho sake
-            setTimeout(() => {
-                if (preloader) { // Check if preloader still exists
-                    preloader.style.display = 'none'; 
-                }
-            }, 300); // CSS transition (0.5s) se pehle .loaded class lag jayegi, ye display none ke liye hai
+        let preloaderHidden = false; // Flag to track if preloader has been handled
 
-            // Initialize AOS after preloader is handled and content is likely visible
+        const hidePreloader = () => {
+            if (preloader && !preloaderHidden) {
+                preloader.classList.add('loaded');
+                setTimeout(() => {
+                    if (preloader) {
+                        preloader.style.display = 'none';
+                    }
+                }, 550); // CSS transition (0.5s) + thoda buffer
+                preloaderHidden = true;
+            }
+        };
+
+        // Try to hide preloader as soon as DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(hidePreloader, 250); // Chhota sa delay DOM ready hone ke baad
+
+            // Initialize AOS when DOM is ready, but it will only animate when elements are in view
             if (typeof AOS !== 'undefined') {
                 AOS.init({
                     duration: 800,
                     easing: 'ease-in-out',
                     once: true,
                     mirror: false,
-                    anchorPlacement: 'top-bottom',
+                    anchorPlacement: 'top-bottom'
                 });
             }
         });
 
-        // Failsafe: Agar 1.5 second tak preloader hide nahi hota, toh force hide kar dein
-        // Yeh mobile par 'load' event ki dikkaton mein madad kar sakta hai
+        // Additional failsafe: Agar 1 second ke baad bhi preloader nahi hata, toh force hide
         setTimeout(() => {
-            if (preloader && preloader.style.display !== 'none' && !preloader.classList.contains('loaded')) {
-                console.warn('Preloader was force-hidden by timeout.');
-                preloader.classList.add('loaded');
-                setTimeout(() => {
-                    if (preloader) { 
-                        preloader.style.display = 'none';
-                    }
-                }, 300); // Match display none timeout
-
-                // Initialize AOS if it was forced
-                if (typeof AOS !== 'undefined' && (!document.body.classList.contains('aos-initialized') || (typeof AOS.refreshHard === 'function' && AOS.refreshHard))) { // Check if AOS.refreshHard is a function before calling
-                     AOS.init({
-                        duration: 800,
-                        easing: 'ease-in-out',
-                        once: true,
-                        mirror: false,
-                        anchorPlacement: 'top-bottom',
-                    });
-                }
+            hidePreloader(); // Call hidePreloader again as a failsafe
+            if (!preloaderHidden) { // Agar abhi bhi hide nahi hua
+                console.warn('Preloader was force-hidden by the final failsafe timeout.');
             }
-        }, 1500); // 1.5 seconds failsafe
+        }, 1000); // 1 second absolute failsafe
+
+        // window.onload ab sirf ek extra check ke liye use ho sakta hai, ya agar koi resource loading par depend karna ho
+        window.addEventListener('load', () => {
+            // Agar DOMContentLoaded ke baad bhi preloader nahi hata, toh yahaan ek aur baar try kar sakte hain
+            // Lekin upar wala logic pehle hi handle kar lega
+            // hidePreloader(); // Optional: can call again, but might be redundant
+        });
+
     } else {
         // Agar preloader nahi hai, toh AOS ko seedha initialize karein DOMContentLoaded par
         // (Waise aapke HTML mein preloader hai, toh yeh fallback hai)
